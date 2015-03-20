@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DenialOfService_10" xml:space="preserve">
+    <value>An attacker can make a server unavailable or unusable without ever authenticating, and the problem persists after the attacker goes away (server, anonymous, persistent).</value>
+  </data>
+  <data name="DenialOfService_2" xml:space="preserve">
+    <value>An attacke can make your authentication system unusable or unavailable.</value>
+  </data>
+  <data name="DenialOfService_3" xml:space="preserve">
+    <value>An attacker can make a client unavailable or unusable but the problem goes away when the attacker stops (client, authenticated, temporary).</value>
+  </data>
+  <data name="DenialOfService_4" xml:space="preserve">
+    <value>An attacker can make a server unavailable or unusable but the problem goes away when the attacker stops (server, authenticated, temporary).</value>
+  </data>
+  <data name="DenialOfService_5" xml:space="preserve">
+    <value>An attacker can make a client unavailable or unusable without ever authenticating, but the problem goes away when the attacker stops (client, anonymous, temporary).</value>
+  </data>
+  <data name="DenialOfService_6" xml:space="preserve">
+    <value>An attacker can make a server unavailable or unusable without ever authenticating, bu tthe problem goes away when the attacker stops (server, anonymous, temporary).</value>
+  </data>
+  <data name="DenialOfService_7" xml:space="preserve">
+    <value>An attacker can make a client unavailable or unusable and the problem persists after the attacker goes away (client, authenticated, persistent).</value>
+  </data>
+  <data name="DenialOfService_8" xml:space="preserve">
+    <value>An attacker can make a server unavailable or unusable and the problem persists after the attacker goes away (server, authenticated, persistent).</value>
+  </data>
+  <data name="DenialOfService_9" xml:space="preserve">
+    <value>An attacker can make a client unvailable or unusable without erver authenticating, and the problem persists after the attacker goes away (client, anonymous, persistent).</value>
+  </data>
+  <data name="DenialOfService_A" xml:space="preserve">
+    <value>You've invented a new Denial of Service attack.</value>
+  </data>
+  <data name="DenialOfService_J" xml:space="preserve">
+    <value>An attacker can cause the logging subsystem to stop working.</value>
+  </data>
+  <data name="DenialOfService_K" xml:space="preserve">
+    <value>An attacker can amplify a Denial of Service attack through this component with amplification on the order of 100:1.</value>
+  </data>
+  <data name="DenialOfService_Q" xml:space="preserve">
+    <value>An attacker can amplify a Denial of Service attack through this component with amplification on th eorder of 10:1.</value>
+  </data>
+  <data name="ElevationOfPrivilege_10" xml:space="preserve">
+    <value>There's no reasonable way for a caller to figure out what security assumptions you make.</value>
+  </data>
+  <data name="ElevationOfPrivilege_5" xml:space="preserve">
+    <value>An attacker can force data through different validation paths which give different results.</value>
+  </data>
+  <data name="ElevationOfPrivilege_6" xml:space="preserve">
+    <value>An attacker could take advantage of .NET permissions you ask for, but don't use.</value>
+  </data>
+  <data name="ElevationOfPrivilege_7" xml:space="preserve">
+    <value>An attacker can provide a pointer across a trust boundary, rather than data which can be validated.</value>
+  </data>
+  <data name="ElevationOfPrivilege_8" xml:space="preserve">
+    <value>An attacker can enter data that is checked while still under the attacker's control and used later on the other side of a trust boundary.</value>
+  </data>
+  <data name="ElevationOfPrivilege_9" xml:space="preserve">
+    <value>There's no reasonable way for callers to figure out what validation of tainted data you perform before passing it to them.</value>
+  </data>
+  <data name="ElevationOfPrivilege_A" xml:space="preserve">
+    <value>You've invented a new Elevation Of Privilege attack.</value>
+  </data>
+  <data name="ElevationOfPrivilege_J" xml:space="preserve">
+    <value>An attacker can reflect input back to a user, like cross-site scripting.</value>
+  </data>
+  <data name="ElevationOfPrivilege_K" xml:space="preserve">
+    <value>An attacker can inject a command that the system will run at a higher privilege level.</value>
+  </data>
+  <data name="ElevationOfPrivilege_Q" xml:space="preserve">
+    <value>You include user-generated content within your page, possibly including the content of random URLs.</value>
+  </data>
+  <data name="InformationDisclosure_10" xml:space="preserve">
+    <value>An attacker can read information in files with no ACLs.</value>
+  </data>
+  <data name="InformationDisclosure_2" xml:space="preserve">
+    <value>An attacker can brute-force file encryption because there's no defense in place (example defense: password stretching).</value>
+  </data>
+  <data name="InformationDisclosure_3" xml:space="preserve">
+    <value>An attacker can see error messages with security-sensitive content.</value>
+  </data>
+  <data name="InformationDisclosure_4" xml:space="preserve">
+    <value>An attacker can read content because messages (for example, an email or HTTP cookie) aren't encrypted even if the channel is encrypted.</value>
+  </data>
+  <data name="InformationDisclosure_5" xml:space="preserve">
+    <value>An attacker may be able to read a document or data because it's encrypted with a non-standard algorithm.</value>
+  </data>
+  <data name="InformationDisclosure_6" xml:space="preserve">
+    <value>An attacker can read data because it's hidden or occluded (for undo or change tracking) and the user might forget that it's threre.</value>
+  </data>
+  <data name="InformationDisclosure_7" xml:space="preserve">
+    <value>An attacker can act as a "man in the middle" because you don't authenticate endpoints of a network connection.</value>
+  </data>
+  <data name="InformationDisclosure_8" xml:space="preserve">
+    <value>An attacker can access information through a search indexer, logger, or other such mechanism.</value>
+  </data>
+  <data name="InformationDisclosure_9" xml:space="preserve">
+    <value>An attacker can read sensitive information in a file with bad ACLs.</value>
+  </data>
+  <data name="InformationDisclosure_A" xml:space="preserve">
+    <value>You've invented a new Information Disclosure attack.</value>
+  </data>
+  <data name="InformationDisclosure_J" xml:space="preserve">
+    <value>An attacker can discover the fixed key being used to encrypt.</value>
+  </data>
+  <data name="InformationDisclosure_K" xml:space="preserve">
+    <value>An attacker can read network information because there's no cryptography used.</value>
+  </data>
+  <data name="InformationDisclosure_Q" xml:space="preserve">
+    <value>An attacker can read the entire channel because the channel (for example, HTTP or SMTP) isn't encrypted.</value>
+  </data>
+  <data name="Repudiation_10" xml:space="preserve">
+    <value>An attacker can get arbitrary data into logs from unauthenticated (or weak authenticated) outsiders without validation.</value>
+  </data>
+  <data name="Repudiation_2" xml:space="preserve">
+    <value>An attacker can pass data through the log to attack a log reader, and there's no documentation of what sorts of validation are done.</value>
+  </data>
+  <data name="Repudiation_3" xml:space="preserve">
+    <value>A low privilege attacker can read interesting security information in the logs.</value>
+  </data>
+  <data name="Repudiation_4" xml:space="preserve">
+    <value>An attacker can alter files or messages because the digital signature system you're implementing is weak, or uses MACs where it should use a signature.</value>
+  </data>
+  <data name="Repudiation_5" xml:space="preserve">
+    <value>An attacker can alter log messages on a network because they lack strong integrity controls.</value>
+  </data>
+  <data name="Repudiation_6" xml:space="preserve">
+    <value>An attacker can create a log entry without a timestamp (or no log entry is timestamped).</value>
+  </data>
+  <data name="Repudiation_7" xml:space="preserve">
+    <value>An attacker can make the logs wrap around and lose data.</value>
+  </data>
+  <data name="Repudiation_8" xml:space="preserve">
+    <value>An attacker can make a log lose or confuse security information.</value>
+  </data>
+  <data name="Repudiation_9" xml:space="preserve">
+    <value>An attacker can use a shared key to authenticate as different principals, confusing the information in the logs.</value>
+  </data>
+  <data name="Repudiation_A" xml:space="preserve">
+    <value>You've invented a new Repudiation attack.</value>
+  </data>
+  <data name="Repudiation_J" xml:space="preserve">
+    <value>An attacker can edit logs and there's no way to tell (perhaps because there's no heartbeat option for the logging system).</value>
+  </data>
+  <data name="Repudiation_K" xml:space="preserve">
+    <value>The system has no logs.</value>
+  </data>
+  <data name="Repudiation_Q" xml:space="preserve">
+    <value>An attacker can say "I didn't do that," and you would have no way to prove them wrong.</value>
+  </data>
+  <data name="Spoofing_10" xml:space="preserve">
+    <value>An attacker can choose to use weaker or no authentication.</value>
+  </data>
+  <data name="Spoofing_2" xml:space="preserve">
+    <value>An attacker could squat on the random port or socket that the server normally uses."</value>
+  </data>
+  <data name="Spoofing_3" xml:space="preserve">
+    <value>An attacker could try one credential after another and there's nothing to slow them down (online or offline).</value>
+  </data>
+  <data name="Spoofing_4" xml:space="preserve">
+    <value>An attacker can anonymously connect because we expect authentication to be done at a higher level.</value>
+  </data>
+  <data name="Spoofing_5" xml:space="preserve">
+    <value>An attacker can confuse a client because there are too many ways to identify a server.</value>
+  </data>
+  <data name="Spoofing_6" xml:space="preserve">
+    <value>An attacker can spoof a server because identifiers aren't stored on the client and checked for consistency on re-connection (that is, there's no key persistence).</value>
+  </data>
+  <data name="Spoofing_7" xml:space="preserve">
+    <value>An attacker can connect to a server or peer over a link that isn't authenticated (and encrypted).</value>
+  </data>
+  <data name="Spoofing_8" xml:space="preserve">
+    <value>An attacker could steal credentials stored on the server and reuse them (for example, a key is stored in a world readable file).</value>
+  </data>
+  <data name="Spoofing_9" xml:space="preserve">
+    <value>An attacker who gets a password can reuse it (use stronger authenticators).</value>
+  </data>
+  <data name="Spoofing_A" xml:space="preserve">
+    <value>You've invented a new Spoofing attack.</value>
+  </data>
+  <data name="Spoofing_J" xml:space="preserve">
+    <value>An attacker could steal credentials stored on the client and reuse them.</value>
+  </data>
+  <data name="Spoofing_K" xml:space="preserve">
+    <value>Your system ships with a default admin password and doesn't force a change.</value>
+  </data>
+  <data name="Spoofing_Q" xml:space="preserve">
+    <value>An attacker could go after the way credentials are updated or recovered (account recovery doesn't require disclosing the old password).</value>
+  </data>
+  <data name="Tampering_10" xml:space="preserve">
+    <value>An attacker can alter information in a data store because it has weak ACLs or includes a group which is equivalent to everyone ("all Live ID holders").</value>
+  </data>
+  <data name="Tampering_3" xml:space="preserve">
+    <value>An attacker can take advantage of your custom key exchange or integrity control which you built instead of using standard crypto.</value>
+  </data>
+  <data name="Tampering_4" xml:space="preserve">
+    <value>Your code makes access control decisions all over the place, rather than with a security kernel.</value>
+  </data>
+  <data name="Tampering_5" xml:space="preserve">
+    <value>An attacker can replay data without detection because your code doesn't provide timestamps or sequence numbers.</value>
+  </data>
+  <data name="Tampering_6" xml:space="preserve">
+    <value>An attacker can write to a data store your code relies on.</value>
+  </data>
+  <data name="Tampering_7" xml:space="preserve">
+    <value>An attacker can bypass permissions because you don't make names canonical before checking access permissions.</value>
+  </data>
+  <data name="Tampering_8" xml:space="preserve">
+    <value>An attacker can manipulate data because there's no integrity protection or data on the network.</value>
+  </data>
+  <data name="Tampering_9" xml:space="preserve">
+    <value>An attacker can provide or control state information.</value>
+  </data>
+  <data name="Tampering_A" xml:space="preserve">
+    <value>You've invented a new Tampering attack.</value>
+  </data>
+  <data name="Tampering_J" xml:space="preserve">
+    <value>An attacker can write to some resource because permissions are granted to the world or there are no ACLs.</value>
+  </data>
+  <data name="Tampering_K" xml:space="preserve">
+    <value>An attacker can load code inside your process via an extension point.</value>
+  </data>
+  <data name="Tampering_Q" xml:space="preserve">
+    <value>An attacker can change parameters over a trust boundary and after validation (for example, important parameters in a hidden field in HTML, or passing a pointer to critical memory).</value>
+  </data>
+</root>
