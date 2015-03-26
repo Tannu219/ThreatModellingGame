@@ -1,54 +1,43 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ThreadModelingGame.Core
 {
-    public class Game
+    public sealed class Game
     {
-        public Dictionary<string, Player> Players;
+        public readonly Guid Id;
+        private readonly ICardDeck _cardDeck;
+        public HashSet<Player> Players;
 
-        public Game()
+        public Game(ICardDeck cardDeck)
         {
-            Players = new Dictionary<string, Player>();
-        }
-
-        public void AddPlayer(Player player)
-        {
-            Players.Add(player.Name, player);
-        }
-
-        public bool HasPlayer(string playerName)
-        {
-            return Players.ContainsKey(playerName);
-        }
-
-        public Player GetPlayer(string playerName)
-        {
-            return Players[playerName];
+            _cardDeck = cardDeck;
+            Id = Guid.NewGuid();
+            Players = new HashSet<Player>();
         }
 
         public void DealCards()
         {
-            foreach (var key in Players.Keys)
+            foreach (var player in Players)
             {
-                Players[key].ClearHand();
+                player.ClearHand();
             }
 
-            var deck = new Card.Deck();
-            deck.Shuffle();
+            _cardDeck.Reset();
+            _cardDeck.Shuffle();
 
-            var i = 0;
-            while (deck.Cards.Count > 1)
+            while (_cardDeck.HasCards())
             {
-                var card = deck.Cards.Pop();
+                var card = _cardDeck.DrawCard();
 
-                Players[Players.Keys.ElementAt(i)].AddCardToHand(card);
-
-                if (++i == Players.Count)
-                {
-                    i = 0;
-                }
+                GetNextPlayer().AddCard(card);
             }
+        }
+
+        private Player GetNextPlayer()
+        {
+            return Players.OrderBy(p => p.Cards.Count).First();
         }
     }
 }

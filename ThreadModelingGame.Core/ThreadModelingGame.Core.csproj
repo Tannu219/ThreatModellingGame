@@ -35,7 +35,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="CardDeck.cs" />
+    <Compile Include="CardPool.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="ICardDeck.cs" />
+    <Compile Include="ICardPool.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
