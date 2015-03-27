@@ -20,38 +20,40 @@ namespace ThreatModelingGame.Web.Controllers
 
         public ActionResult Game(string id, string playerName)
         {
-            var playerCookie = Request.Cookies["Player"];
+            return View();
 
-            if (playerCookie == null)
-            {
-                // Redirect to create cookie first
-            }
+            //var playerCookie = Request.Cookies["Player"];
 
-            var game = Request.RequestContext.HttpContext.Application[id] as Game;
+            //if (playerCookie == null)
+            //{
+            //    // Redirect to create cookie first
+            //}
 
-            if (game == null)
-            {
-                game = new Game(_cardDeck);
-                Request.RequestContext.HttpContext.Application[id] = game;
-            }
+            //var game = Request.RequestContext.HttpContext.Application[id] as Game;
 
-            var player = playerCookie.Value as Player;
+            //if (game == null)
+            //{
+            //    game = new Game(_cardDeck);
+            //    Request.RequestContext.HttpContext.Application[id] = game;
+            //}
 
-            
+            //var player = playerCookie.Value as Player;
 
-            if (!game.HasPlayer(playerName))
-            {
-                player = new Player { Name = playerName };
-                game.AddPlayer(player);
-                
-                game.DealCards();
-            }
-            else
-            {
-                player = game.GetPlayer(playerName);
-            }
 
-            return View(player);
+
+            //if (!game.HasPlayer(playerName))
+            //{
+            //    player = new Player { Name = playerName };
+            //    game.AddPlayer(player);
+
+            //    game.DealCards();
+            //}
+            //else
+            //{
+            //    player = game.GetPlayer(playerName);
+            //}
+
+            //return View(player);
         }
 
         //public ActionResult Game2(string gameId, string playerName)

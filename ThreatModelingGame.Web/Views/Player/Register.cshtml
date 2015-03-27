@@ -1,0 +1,15 @@
+﻿@model ThreatModelingGame.Web.Models.PlayerModel
+
+@{
+    ViewBag.Title = "Register - Elevation of Privilege (EoP) Threat Modeling Card Game";
+}
+
+@using (Html.BeginForm())
+{
+    <legend>Please enter your name to get started.</legend>
+    
+    @Html.LabelFor(m => m.Name)
+    @Html.EditorFor(m => m.Name)
+    
+    <input type="submit" value="Get Started"/>
+}

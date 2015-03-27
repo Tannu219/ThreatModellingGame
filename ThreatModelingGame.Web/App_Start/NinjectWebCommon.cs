@@ -1,9 +1,10 @@
-using System;
-using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
+using System;
+using System.Web;
 using ThreadModelingGame.Core;
+using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
@@ -13,7 +14,7 @@ namespace ThreatModelingGame.Web
 {
     public static class NinjectWebCommon
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        public static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -22,7 +23,7 @@ namespace ThreatModelingGame.Web
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace ThreatModelingGame.Web
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
 
         /// <summary>
@@ -63,6 +64,8 @@ namespace ThreatModelingGame.Web
         {
             kernel.Bind<ICardPool>().To<CardPool>();
             kernel.Bind<ICardDeck>().To<CardDeck>();
+            kernel.Bind<ISerializer>().To<JsonSerializer>();
+            kernel.Bind<ICookieManager>().To<CookieManager>();
         }
     }
 }
