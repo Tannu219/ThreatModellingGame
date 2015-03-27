@@ -52,3 +52,15 @@ input[type=submit] {
     font-weight: 500;
     cursor: pointer;
 }
+
+.validation-summary-errors {
+    border: solid 1px #fa8072;
+    background: #ffdead;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.validation-summary-errors ul {
+    margin: .6em 0;
+    color: #000;
+}
