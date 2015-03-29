@@ -17,7 +17,7 @@ namespace ThreadModelingGame.Core
             Name = name;
         }
 
-        public Guid Id { get { return _id; } }
+        public string Id { get { return _id.ToString(); } }
         public string Name { get; set; }
     }
 }

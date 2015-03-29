@@ -1,17 +1,16 @@
-using System;
 using System.Collections.Generic;
 
 namespace ThreadModelingGame.Core
 {
     public interface IGame
     {
-        bool ContainsPlayer(Guid playerId);
+        bool ContainsPlayer(string playerId);
         void AddPlayer(Player player);
-        PlayerInGame GetPlayer(Guid playerId);
+        PlayerInGame GetPlayer(string playerId);
         IEnumerable<Player> GetPlayers();
         void DealCards();
 
-        Guid Id { get; }
+        string Id { get; }
         string Name { get; set; }
     }
 }

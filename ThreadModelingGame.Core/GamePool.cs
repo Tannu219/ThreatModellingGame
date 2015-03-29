@@ -9,14 +9,14 @@ namespace ThreadModelingGame.Core
         public static GamePool Instance { get { return Lazy.Value; } }
         private static readonly Lazy<GamePool> Lazy = new Lazy<GamePool>(() => new GamePool());
 
-        private readonly IDictionary<Guid, IGame> _gameDictionary;
+        private readonly IDictionary<string, IGame> _gameDictionary;
 
         private GamePool()
         {
-            _gameDictionary = new Dictionary<Guid, IGame>();
+            _gameDictionary = new Dictionary<string, IGame>();
         }
 
-        public bool Contains(Guid gameId)
+        public bool Contains(string gameId)
         {
             return _gameDictionary.ContainsKey(gameId);
         }
@@ -26,12 +26,12 @@ namespace ThreadModelingGame.Core
             _gameDictionary.Add(game.Id, game);
         }
 
-        public IGame Get(Guid gameId)
+        public IGame Get(string gameId)
         {
             return _gameDictionary[gameId];
         }
 
-        public IEnumerable<IGame> GetGamesWithPlayer(Guid playerId)
+        public IEnumerable<IGame> GetGamesWithPlayer(string playerId)
         {
             return _gameDictionary.Values.Where(game => game.ContainsPlayer(playerId));
         }

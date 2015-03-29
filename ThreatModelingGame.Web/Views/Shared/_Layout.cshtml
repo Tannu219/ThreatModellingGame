@@ -5,23 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,400italic,700,500italic,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:500,900,400italic,700,500italic,400">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/content/site.css">
 </head>
 <body>
-    <div id="mainbox">
-        <header>
-            <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
-        </header>
-        <main>
-            @RenderBody()
-        </main>
-    </div>
-    <section id="sidebox">
-        @RenderSection("SideBox", false)
-        <footer>
-            <p>Powered by <a href="http://dusted.codes/">Dustin Moris Gorski</a></p>
-        </footer>
-    </section>
+    @RenderBody()
 </body>
 </html>

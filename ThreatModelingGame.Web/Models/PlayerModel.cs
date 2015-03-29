@@ -26,7 +26,7 @@ namespace ThreatModelingGame.Web.Models
             return _player;
         }
 
-        public Guid Id
+        public string Id
         {
             get { return _player.Id; }
         }

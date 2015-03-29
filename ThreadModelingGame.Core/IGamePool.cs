@@ -5,9 +5,9 @@ namespace ThreadModelingGame.Core
 {
     public interface IGamePool
     {
-        bool Contains(Guid gameId);
+        bool Contains(string gameId);
         void Add(IGame game);
-        IGame Get(Guid gameId);
-        IEnumerable<IGame> GetGamesWithPlayer(Guid playerId);
+        IGame Get(string gameId);
+        IEnumerable<IGame> GetGamesWithPlayer(string playerId);
     }
 }

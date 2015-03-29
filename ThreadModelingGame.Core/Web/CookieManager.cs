@@ -15,7 +15,7 @@ namespace ThreadModelingGame.Core.Web
                 Expires = DateTime.MaxValue
             };
 
-            playerCookie.Values.Add("Id", player.Id.ToString("D"));
+            playerCookie.Values.Add("Id", player.Id);
             playerCookie.Values.Add("Name", player.Name);
 
             httpResponse.Cookies.Remove(PlayerCookieName);

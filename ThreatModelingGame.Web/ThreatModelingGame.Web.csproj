@@ -127,6 +127,7 @@
     <Content Include="Views\Player\Register.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Game\Show.cshtml" />
+    <Content Include="Views\Shared\_Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

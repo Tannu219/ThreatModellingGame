@@ -37,9 +37,9 @@ namespace ThreatModelingGame.Web.Controllers
         }
 
         [RegisteredPlayer]
-        public ActionResult Join(Guid gameId)
+        public ActionResult Join(string gameId)
         {
-            if (!_gamePool.Contains(gameId))
+            if (string.IsNullOrEmpty(gameId) || !_gamePool.Contains(gameId))
             {
                 return HttpNotFound();
             }
@@ -54,16 +54,16 @@ namespace ThreatModelingGame.Web.Controllers
         }
 
         [RegisteredPlayer]
-        public ActionResult Show(Guid gameId)
+        public ActionResult Show(string gameId)
         {
-            if (!_gamePool.Contains(gameId))
+            if (string.IsNullOrEmpty(gameId) || !_gamePool.Contains(gameId))
             {
                 return HttpNotFound();
             }
 
             var game = _gamePool.Get(gameId);
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var playerInGame = game.GetPlayer(player.Id);
+            var playerInGame = game.GetPlayer(player.Id.ToString());
 
             var model = new GameModel(game, playerInGame);
 

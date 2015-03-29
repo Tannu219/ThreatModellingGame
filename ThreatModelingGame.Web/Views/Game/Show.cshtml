@@ -6,8 +6,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div id="sidebox">
+    <h3>User Details</h3>
+    <p>
+        ID: @Model.CurrentPlayer.Player.Id
+        <br />
+        Name: @Model.CurrentPlayer.Player.Name
+    </p>
+    <h3>Game Details</h3>
+    <p>
+        <strong>ID:</strong> @Model.Id
+        <br />
+        <strong>Name:</strong> @Model.Name
+    </p>
+    <p>
+        @{
+            var gameUrl = Url.Action("Show", "Game", new { gameId = Model.Id });
+        }
+        <a href="@gameUrl"><i class="fa fa-link"></i> @Model.Name</a>
+    </p>
+    <h4>Players in Game:</h4>
+    <ul>
+        @foreach (var player in Model.Players)
+        {
+            <li><abbr title="@player.Id">@player.Name</abbr></li>
+        }
+    </ul>
+</div>
+
 <div id="cardboard">
-    @foreach (var card in Model.Player.GetCards())
+    @foreach (var card in Model.CurrentPlayer.GetCards())
     {
         <div class="card">
             <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
@@ -15,14 +43,3 @@
         </div>
     }
 </div>
-
-@section SideBox
-{
-    <h4>Game Details</h4>
-    <h5>ID</h5>
-    <p>@Model.Id</p>
-    <h5>Name</h5>
-    <p>@Model.Name</p>
-    <h5>Permalink</h5>
-    <p></p>
-}
