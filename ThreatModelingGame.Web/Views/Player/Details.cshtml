@@ -20,3 +20,13 @@
 <p>
     @Html.ActionLink("Start new Game", "New", "Game")
 </p>
+
+@using (Html.BeginForm("New", "Game"))
+{
+    <legend>Start new Game</legend>
+    
+    <label for="gamename">Name of new Game</label>
+    <input type="text" id="gamename" name="gamename"/>
+
+    <input type="submit" value="Create new Game" />
+}

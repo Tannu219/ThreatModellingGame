@@ -48,9 +48,14 @@
     <Compile Include="CardDeck.cs" />
     <Compile Include="CardPool.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameFactory.cs" />
+    <Compile Include="GamePool.cs" />
     <Compile Include="ICardDeck.cs" />
     <Compile Include="ICardPool.cs" />
-    <Compile Include="ListExtensions.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="IGameFactory.cs" />
+    <Compile Include="IGamePool.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Threats.Designer.cs">

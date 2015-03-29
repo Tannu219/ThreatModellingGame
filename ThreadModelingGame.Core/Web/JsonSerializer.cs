@@ -2,7 +2,7 @@
 
 namespace ThreadModelingGame.Core.Web
 {
-    public class JsonSerializer : ISerializer
+    public sealed class JsonSerializer : ISerializer
     {
         public string Serialize<T>(T obj)
         {

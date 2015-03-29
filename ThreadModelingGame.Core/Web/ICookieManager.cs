@@ -4,7 +4,7 @@ namespace ThreadModelingGame.Core.Web
 {
     public interface ICookieManager
     {
-        void IssueNewCookie(HttpResponseBase httpResponse, Player player);
-        Player ExtractFromCookie(HttpRequestBase httpRequest);
+        void IssueNewPlayerCookie(HttpResponseBase httpResponse, Player player);
+        Player ExtractPlayerFromCookie(HttpRequestBase httpRequest);
     }
 }

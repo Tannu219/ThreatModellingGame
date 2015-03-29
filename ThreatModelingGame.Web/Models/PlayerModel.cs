@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using ThreadModelingGame.Core;
 
 namespace ThreatModelingGame.Web.Models
 {
-    public class PlayerModel
+    public sealed class PlayerModel
     {
         private readonly Player _player;
 
@@ -20,6 +21,11 @@ namespace ThreatModelingGame.Web.Models
         public Player ToPlayer()
         {
             return _player;
+        }
+
+        public Guid Id
+        {
+            get { return _player.Id; }
         }
 
         [Required]

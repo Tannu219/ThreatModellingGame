@@ -9,6 +9,18 @@
     <link rel="stylesheet" type="text/css" href="~/content/site.css">
 </head>
 <body>
-    @RenderBody()
+    <div id="mainbox">
+        <header>
+            <h1>Elevation of Privilege (EoP) Threat Modeling Card Game</h1>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+    <section id="sidebox">
+        <footer>
+            <p>Powered by <a href="http://dusted.codes/">Dustin Moris Gorski</a></p>
+        </footer>
+    </section>
 </body>
 </html>

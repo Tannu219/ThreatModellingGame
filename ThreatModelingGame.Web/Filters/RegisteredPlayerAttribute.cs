@@ -24,7 +24,7 @@ namespace ThreatModelingGame.Web.Filters
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var player = _cookieManager.ExtractFromCookie(httpContext.Request);
+            var player = _cookieManager.ExtractPlayerFromCookie(httpContext.Request);
 
             return player != null;
         }

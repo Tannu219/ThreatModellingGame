@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ThreatModelingGame.Web.Models
 {
-    public class IndexModel
+    public sealed class IndexModel
     {
     }
 }

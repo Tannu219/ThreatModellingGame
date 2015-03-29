@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ThreadModelingGame.Core
+namespace ThreadModelingGame.Core.Extensions
 {
     public static class ListExtensions
     {

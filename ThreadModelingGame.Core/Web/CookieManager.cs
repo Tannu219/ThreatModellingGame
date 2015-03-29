@@ -3,7 +3,7 @@ using System.Web;
 
 namespace ThreadModelingGame.Core.Web
 {
-    public class CookieManager : ICookieManager
+    public sealed class CookieManager : ICookieManager
     {
         private readonly ISerializer _serializer;
         private const string PlayerCookieName = "Player";
@@ -13,7 +13,7 @@ namespace ThreadModelingGame.Core.Web
             _serializer = serializer;
         }
 
-        public void IssueNewCookie(HttpResponseBase httpResponse, Player player)
+        public void IssueNewPlayerCookie(HttpResponseBase httpResponse, Player player)
         {
             var playerCookie = new HttpCookie(PlayerCookieName)
             {
@@ -26,7 +26,7 @@ namespace ThreadModelingGame.Core.Web
             httpResponse.Cookies.Add(playerCookie);
         }
 
-        public Player ExtractFromCookie(HttpRequestBase httpRequest)
+        public Player ExtractPlayerFromCookie(HttpRequestBase httpRequest)
         {
             try
             {

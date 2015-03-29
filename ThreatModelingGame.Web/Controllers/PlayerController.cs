@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web.Filters;
 using ThreatModelingGame.Web.Models;
@@ -33,7 +29,7 @@ namespace ThreatModelingGame.Web.Controllers
 
             var player = model.ToPlayer();
 
-            _cookieManager.IssueNewCookie(Response, player);
+            _cookieManager.IssueNewPlayerCookie(Response, player);
 
             return RedirectToAction("Details");
         }
@@ -41,7 +37,7 @@ namespace ThreatModelingGame.Web.Controllers
         [RegisteredPlayer]
         public ActionResult Details()
         {
-            var player = _cookieManager.ExtractFromCookie(Request);
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
             return View(new PlayerModel(player));
         }

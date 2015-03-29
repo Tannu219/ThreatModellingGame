@@ -4,22 +4,37 @@ using System.Linq;
 
 namespace ThreadModelingGame.Core
 {
-    public sealed class Game
+    public sealed class Game : IGame
     {
-        public readonly Guid Id;
+        private readonly Guid _id;
+        private readonly IDictionary<Guid, Player> _playerDictionary;
         private readonly ICardDeck _cardDeck;
-        public HashSet<Player> Players;
 
         public Game(ICardDeck cardDeck)
         {
+            _id = Guid.NewGuid();
+            _playerDictionary = new Dictionary<Guid, Player>();
             _cardDeck = cardDeck;
-            Id = Guid.NewGuid();
-            Players = new HashSet<Player>();
+        }
+
+        public bool ContainsPlayer(Guid playerId)
+        {
+            return _playerDictionary.ContainsKey(playerId);
+        }
+
+        public void AddPlayer(Player player)
+        {
+            _playerDictionary.Add(player.Id, player);
+        }
+
+        public IEnumerable<Player> GetPlayers()
+        {
+            return _playerDictionary.Values;
         }
 
         public void DealCards()
         {
-            foreach (var player in Players)
+            foreach (var player in _playerDictionary.Values)
             {
                 player.ClearHand();
             }
@@ -37,7 +52,10 @@ namespace ThreadModelingGame.Core
 
         private Player GetNextPlayer()
         {
-            return Players.OrderBy(p => p.Cards.Count).First();
+            return _playerDictionary.Values.OrderBy(p => p.Cards.Count).First();
         }
+
+        public Guid Id { get { return _id; } }
+        public string Name { get; set; }
     }
 }

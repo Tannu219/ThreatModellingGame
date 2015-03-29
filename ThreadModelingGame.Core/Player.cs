@@ -6,7 +6,6 @@ namespace ThreadModelingGame.Core
     public sealed class Player
     {
         public readonly Guid Id;
-        public string Name { get; set; }
         public readonly HashSet<Card> Cards;
 
         public Player()
@@ -20,11 +19,6 @@ namespace ThreadModelingGame.Core
             return string.Format("[{0}] {1}", Id, Name);
         }
 
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
-        }
-
         public void AddCard(Card card)
         {
             Cards.Add(card);
@@ -34,5 +28,7 @@ namespace ThreadModelingGame.Core
         {
             Cards.Clear();
         }
+
+        public string Name { get; set; }
     }
 }
