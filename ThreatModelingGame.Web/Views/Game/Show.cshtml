@@ -1,12 +1,28 @@
-﻿@model ThreatModelingGame.Web.Models.GameModel
+﻿@using ThreadModelingGame.Core.Extensions
+@model ThreatModelingGame.Web.Models.GameModel
 
 @{
     ViewBag.Title = "Show";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="game">
-    <header>
-        <h1></h1>
-    </header>
-</section>
+<div id="cardboard">
+    @foreach (var card in Model.Player.GetCards())
+    {
+        <div class="card">
+            <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
+            <p>@card.Description</p>
+        </div>
+    }
+</div>
+
+@section SideBox
+{
+    <h4>Game Details</h4>
+    <h5>ID</h5>
+    <p>@Model.Id</p>
+    <h5>Name</h5>
+    <p>@Model.Name</p>
+    <h5>Permalink</h5>
+    <p></p>
+}

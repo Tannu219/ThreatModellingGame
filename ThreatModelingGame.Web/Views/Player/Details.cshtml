@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm())
 {
-    <legend>Your Details</legend>
+    <h2>Your Details</h2>
 
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
@@ -15,18 +15,27 @@
 }
 
 <h2>Games currently participating</h2>
-<p>You are not participating in any games at the moment.</p>
+@if (Model.GamesWithPlayer == null || !Model.GamesWithPlayer.Any())
+{
+    <p>You are not participating in any games at the moment.</p>
+}
+else
+{
+    foreach (var game in Model.GamesWithPlayer)
+    {
+        <ul>
+            <li>@Html.ActionLink(game.Name, "Show", "Game", new { gameId = game.Id }, null)</li>
+        </ul>
+    }
+}
 
-<p>
-    @Html.ActionLink("Start new Game", "New", "Game")
-</p>
 
 @using (Html.BeginForm("New", "Game"))
 {
-    <legend>Start new Game</legend>
-    
+    <h2>Start new Game</h2>
+
     <label for="gamename">Name of new Game</label>
-    <input type="text" id="gamename" name="gamename"/>
+    <input type="text" id="gamename" name="gamename" />
 
     <input type="submit" value="Create new Game" />
 }

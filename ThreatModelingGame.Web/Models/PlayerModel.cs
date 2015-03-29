@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ThreadModelingGame.Core;
 
@@ -7,15 +8,17 @@ namespace ThreatModelingGame.Web.Models
     public sealed class PlayerModel
     {
         private readonly Player _player;
+        private readonly IEnumerable<IGame> _gamesWithPlayer;
 
         public PlayerModel()
         {
             _player = new Player();
         }
 
-        public PlayerModel(Player player)
+        public PlayerModel(Player player, IEnumerable<IGame> gamesWithPlayer)
         {
             _player = player;
+            _gamesWithPlayer = gamesWithPlayer;
         }
 
         public Player ToPlayer()
@@ -26,6 +29,11 @@ namespace ThreatModelingGame.Web.Models
         public Guid Id
         {
             get { return _player.Id; }
+        }
+
+        public IEnumerable<IGame> GamesWithPlayer
+        {
+            get { return _gamesWithPlayer; }
         }
 
         [Required]

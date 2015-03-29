@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ThreadModelingGame.Core
 {
@@ -7,5 +8,6 @@ namespace ThreadModelingGame.Core
         bool Contains(Guid gameId);
         void Add(IGame game);
         IGame Get(Guid gameId);
+        IEnumerable<IGame> GetGamesWithPlayer(Guid playerId);
     }
 }

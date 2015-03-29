@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using ThreadModelingGame.Core;
 using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web.Filters;
 using ThreatModelingGame.Web.Models;
@@ -8,10 +9,12 @@ namespace ThreatModelingGame.Web.Controllers
     public class PlayerController : Controller
     {
         private readonly ICookieManager _cookieManager;
+        private readonly IGamePool _gamePool;
 
-        public PlayerController(ICookieManager cookieManager)
+        public PlayerController(ICookieManager cookieManager, IGamePool gamePool)
         {
             _cookieManager = cookieManager;
+            _gamePool = gamePool;
         }
 
         public ActionResult Register()
@@ -20,7 +23,7 @@ namespace ThreatModelingGame.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(PlayerModel model)
+        public ActionResult Details(PlayerModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -28,18 +31,20 @@ namespace ThreatModelingGame.Web.Controllers
             }
 
             var player = model.ToPlayer();
+            var gamesWithPlayer = _gamePool.GetGamesWithPlayer(player.Id);
 
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
-            return RedirectToAction("Details");
+            return View(new PlayerModel(player, gamesWithPlayer));
         }
 
         [RegisteredPlayer]
         public ActionResult Details()
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var gamesWithPlayer = _gamePool.GetGamesWithPlayer(player.Id);
 
-            return View(new PlayerModel(player));
+            return View(new PlayerModel(player, gamesWithPlayer));
         }
     }
 }

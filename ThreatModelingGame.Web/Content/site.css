@@ -1,8 +1,4 @@
-﻿html, body {
-    height: 100%;
-}
-
-body {
+﻿body {
     display: flex;
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
@@ -13,23 +9,23 @@ body {
 }
 
 #mainbox {
-    -ms-flex: 0 auto;
-    flex: 0 auto;
+    -ms-flex: 1 80%;
+    flex: 1 80%;
     order: 2;
-    margin-left: 2em;
+    padding-left: 2em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #sidebox {
-    -ms-flex: 0 auto;
-    flex: 0 auto;
+    -ms-flex: 0 20%;
+    flex: 0 20%;
     order: 1;
-    min-height: 100%;
     padding: 2em;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: #222;
-    color: #fff;
 }
 
 a:link {
@@ -62,13 +58,6 @@ header {
 
 form {
     margin: 2em 0;
-}
-
-legend {
-    margin-bottom: 1em;
-    padding: 0;
-    font-size: 1.3em;
-    font-weight: 500;
 }
 
 label, input {
@@ -107,4 +96,18 @@ input[type=submit] {
 .validation-summary-errors ul {
     margin: .6em 0;
     color: #000;
+}
+
+#cardboard {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card {
+    border: 1px solid #666;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    padding: 1em;
+    width: 150px;
+    margin: 0 20px 20px 0;
 }

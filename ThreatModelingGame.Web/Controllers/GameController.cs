@@ -63,8 +63,9 @@ namespace ThreatModelingGame.Web.Controllers
 
             var game = _gamePool.Get(gameId);
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var playerInGame = game.GetPlayer(player.Id);
 
-            var model = new GameModel(game, player);
+            var model = new GameModel(game, playerInGame);
 
             return View(model);
         }

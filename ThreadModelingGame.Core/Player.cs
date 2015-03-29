@@ -1,34 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ThreadModelingGame.Core
 {
     public sealed class Player
     {
-        public readonly Guid Id;
-        public readonly HashSet<Card> Cards;
+        private readonly Guid _id;
 
         public Player()
         {
-            Id = Guid.NewGuid();
-            Cards = new HashSet<Card>();
+            _id = Guid.NewGuid();
         }
 
-        public override string ToString()
+        public Player(Guid id, string name)
         {
-            return string.Format("[{0}] {1}", Id, Name);
+            _id = id;
+            Name = name;
         }
 
-        public void AddCard(Card card)
-        {
-            Cards.Add(card);
-        }
-
-        public void ClearHand()
-        {
-            Cards.Clear();
-        }
-
+        public Guid Id { get { return _id; } }
         public string Name { get; set; }
     }
 }

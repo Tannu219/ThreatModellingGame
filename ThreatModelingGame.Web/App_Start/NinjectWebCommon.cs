@@ -62,7 +62,6 @@ namespace ThreatModelingGame.Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ISerializer>().To<JsonSerializer>();
             kernel.Bind<ICookieManager>().To<CookieManager>();
             kernel.Bind<IGameFactory>().To<GameFactory>();
             kernel.Bind<IGamePool>().ToConstant(GamePool.Instance);

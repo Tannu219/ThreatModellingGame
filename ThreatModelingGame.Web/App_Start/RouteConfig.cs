@@ -9,11 +9,11 @@ namespace ThreatModelingGame.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Game",
-                url: "Game/{id}/{playerName}",
-                defaults: new { controller = "Home", action = "Game" }
-            );
+            //routes.MapRoute(
+            //    name: "Game",
+            //    url: "Game/{gameId}",
+            //    defaults: new { controller = "Game", action = "Show" }
+            //);
 
             routes.MapRoute(
                 name: "Default",

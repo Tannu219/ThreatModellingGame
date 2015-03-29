@@ -5,22 +5,18 @@ namespace ThreadModelingGame.Core.Web
 {
     public sealed class CookieManager : ICookieManager
     {
-        private readonly ISerializer _serializer;
         private const string PlayerCookieName = "Player";
-
-        public CookieManager(ISerializer serializer)
-        {
-            _serializer = serializer;
-        }
 
         public void IssueNewPlayerCookie(HttpResponseBase httpResponse, Player player)
         {
             var playerCookie = new HttpCookie(PlayerCookieName)
             {
                 HttpOnly = true,
-                Expires = DateTime.MaxValue,
-                Value = _serializer.Serialize(player)
+                Expires = DateTime.MaxValue
             };
+
+            playerCookie.Values.Add("Id", player.Id.ToString("D"));
+            playerCookie.Values.Add("Name", player.Name);
 
             httpResponse.Cookies.Remove(PlayerCookieName);
             httpResponse.Cookies.Add(playerCookie);
@@ -32,9 +28,13 @@ namespace ThreadModelingGame.Core.Web
             {
                 var playerCookie = httpRequest.Cookies[PlayerCookieName];
 
-                return playerCookie == null
-                    ? null
-                    : _serializer.Deserialize<Player>(playerCookie.Value);
+                if (playerCookie == null)
+                    return null;
+
+                var id = new Guid(playerCookie["Id"]);
+                var name = playerCookie["Name"];
+
+                return new Player(id, name);
             }
             catch
             {

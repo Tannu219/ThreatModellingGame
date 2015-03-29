@@ -11,13 +11,14 @@
 <body>
     <div id="mainbox">
         <header>
-            <h1>Elevation of Privilege (EoP) Threat Modeling Card Game</h1>
+            <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
         </header>
         <main>
             @RenderBody()
         </main>
     </div>
     <section id="sidebox">
+        @RenderSection("SideBox", false)
         <footer>
             <p>Powered by <a href="http://dusted.codes/">Dustin Moris Gorski</a></p>
         </footer>

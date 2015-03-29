@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ThreadModelingGame.Core
 {
@@ -28,6 +29,11 @@ namespace ThreadModelingGame.Core
         public IGame Get(Guid gameId)
         {
             return _gameDictionary[gameId];
+        }
+
+        public IEnumerable<IGame> GetGamesWithPlayer(Guid playerId)
+        {
+            return _gameDictionary.Values.Where(game => game.ContainsPlayer(playerId));
         }
     }
 }

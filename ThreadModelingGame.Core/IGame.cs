@@ -7,6 +7,7 @@ namespace ThreadModelingGame.Core
     {
         bool ContainsPlayer(Guid playerId);
         void AddPlayer(Player player);
+        PlayerInGame GetPlayer(Guid playerId);
         IEnumerable<Player> GetPlayers();
         void DealCards();
 
