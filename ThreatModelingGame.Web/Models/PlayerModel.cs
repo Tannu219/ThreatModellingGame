@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using ThreadModelingGame.Core;
 
@@ -24,11 +23,6 @@ namespace ThreatModelingGame.Web.Models
         public Player ToPlayer()
         {
             return _player;
-        }
-
-        public string Id
-        {
-            get { return _player.Id; }
         }
 
         public IEnumerable<IGame> GamesWithPlayer

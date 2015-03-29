@@ -6,13 +6,13 @@ namespace ThreadModelingGame.Core
 {
     public sealed class Game : IGame
     {
-        private readonly Guid _id;
+        private readonly string _id;
         private readonly IDictionary<string, PlayerInGame> _playerDictionary;
         private readonly ICardDeck _cardDeck;
 
         public Game(ICardDeck cardDeck)
         {
-            _id = Guid.NewGuid();
+            _id = Guid.NewGuid().ToString("N");
             _playerDictionary = new Dictionary<string, PlayerInGame>();
             _cardDeck = cardDeck;
         }
@@ -25,7 +25,7 @@ namespace ThreadModelingGame.Core
         public void AddPlayer(Player player)
         {
             _playerDictionary.Add(
-                player.Id.ToString(),
+                player.Id,
                 new PlayerInGame(player));
         }
 
@@ -62,7 +62,7 @@ namespace ThreadModelingGame.Core
             return _playerDictionary.Values.OrderBy(p => p.GetCards().Count()).First();
         }
 
-        public string Id { get { return _id.ToString(); } }
+        public string Id { get { return _id; } }
         public string Name { get; set; }
     }
 }

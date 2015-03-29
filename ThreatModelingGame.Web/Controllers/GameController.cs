@@ -24,6 +24,7 @@ namespace ThreatModelingGame.Web.Controllers
         [RegisteredPlayer]
         public ActionResult New(string gameName)
         {
+
             var game = _gameFactory.NewGame();
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 

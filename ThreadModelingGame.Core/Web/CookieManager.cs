@@ -31,7 +31,7 @@ namespace ThreadModelingGame.Core.Web
                 if (playerCookie == null)
                     return null;
 
-                var id = new Guid(playerCookie["Id"]);
+                var id = playerCookie["Id"];
                 var name = playerCookie["Name"];
 
                 return new Player(id, name);

@@ -1,5 +1,3 @@
-using System;
-
 namespace ThreadModelingGame.Core
 {
     public sealed class Card

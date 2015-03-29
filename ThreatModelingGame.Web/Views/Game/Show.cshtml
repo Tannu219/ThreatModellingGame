@@ -6,40 +6,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="sidebox">
-    <h3>User Details</h3>
-    <p>
-        ID: @Model.CurrentPlayer.Player.Id
-        <br />
-        Name: @Model.CurrentPlayer.Player.Name
-    </p>
-    <h3>Game Details</h3>
-    <p>
-        <strong>ID:</strong> @Model.Id
-        <br />
-        <strong>Name:</strong> @Model.Name
-    </p>
-    <p>
+<div id="game">
+    <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
+    <div id="cardboard">
+        @foreach (var card in Model.CurrentPlayer.GetCards())
+        {
+            <div class="card">
+                <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
+                <p>@card.Description</p>
+            </div>
+        }
+    </div>
+
+    <div id="sidebox">
         @{
             var gameUrl = Url.Action("Show", "Game", new { gameId = Model.Id });
         }
-        <a href="@gameUrl"><i class="fa fa-link"></i> @Model.Name</a>
-    </p>
-    <h4>Players in Game:</h4>
-    <ul>
-        @foreach (var player in Model.Players)
-        {
-            <li><abbr title="@player.Id">@player.Name</abbr></li>
-        }
-    </ul>
-</div>
+        <h2><a href="@gameUrl"><i class="fa fa-link"></i> @Model.Name</a></h2>
+        
+        <h3>Players in Game</h3>
+        <ul>
+            @foreach (var player in Model.Players)
+            {
+                <li>@player.Name</li>
+            }
+        </ul>
 
-<div id="cardboard">
-    @foreach (var card in Model.CurrentPlayer.GetCards())
-    {
-        <div class="card">
-            <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
-            <p>@card.Description</p>
-        </div>
-    }
+        <h3>@Model.CurrentPlayer.Player.Name</h3>
+        @using (Html.BeginForm())
+        {
+            <input type="submit" value="Leave this Game" />
+        }
+        
+        <h3>Help</h3>
+        <ul>
+            <li><a href="http://en.wikipedia.org/wiki/STRIDE_(security)">STRIDE</a></li>
+            <li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></li>
+        </ul>
+    </div>
 </div>

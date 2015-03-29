@@ -4,6 +4,6 @@ namespace ThreadModelingGame.Core
 {
     public interface ICardPool
     {
-        HashSet<Card> GetAllCards();
+        IEnumerable<Card> GetAllCards();
     }
 }

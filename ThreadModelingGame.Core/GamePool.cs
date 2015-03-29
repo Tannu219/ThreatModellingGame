@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace ThreadModelingGame.Core
 {
+    /// <summary>
+    /// In memory persistence of games. Each application restart will clear all games.
+    /// This is good enough for the first version. Can change to a different persistence 
+    /// layer in a later stage of the project.
+    /// </summary>
     public sealed class GamePool : IGamePool
     {
         public static GamePool Instance { get { return Lazy.Value; } }

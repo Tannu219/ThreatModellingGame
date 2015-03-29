@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ThreadModelingGame.Core.Resources;
 
 namespace ThreadModelingGame.Core
@@ -7,7 +8,7 @@ namespace ThreadModelingGame.Core
     {
         private static IEnumerable<Card> GetAllSpoofingCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.Spoofing, "2", Threats.Spoofing_2),
                 Card.Create(Suit.Spoofing, "3", Threats.Spoofing_3),
@@ -27,7 +28,7 @@ namespace ThreadModelingGame.Core
 
         private static IEnumerable<Card> GetAllTamperingCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.Tampering, "3", Threats.Tampering_3),
                 Card.Create(Suit.Tampering, "4", Threats.Tampering_4),
@@ -46,7 +47,7 @@ namespace ThreadModelingGame.Core
 
         private static IEnumerable<Card> GetAllRepudiationCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.Repudiation, "2", Threats.Repudiation_2),
                 Card.Create(Suit.Repudiation, "3", Threats.Repudiation_3),
@@ -66,7 +67,7 @@ namespace ThreadModelingGame.Core
 
         private static IEnumerable<Card> GetAllInformationDisclosureCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.InformationDisclosure, "2", Threats.InformationDisclosure_2),
                 Card.Create(Suit.InformationDisclosure, "3", Threats.InformationDisclosure_3),
@@ -86,7 +87,7 @@ namespace ThreadModelingGame.Core
 
         private static IEnumerable<Card> GetAllDenialOfServiceCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.DenialOfService, "2", Threats.DenialOfService_2),
                 Card.Create(Suit.DenialOfService, "3", Threats.DenialOfService_3),
@@ -106,7 +107,7 @@ namespace ThreadModelingGame.Core
 
         private static IEnumerable<Card> GetAllElevationOfPrivilegeCards()
         {
-            return new HashSet<Card>
+            return new []
             {
                 Card.Create(Suit.ElevationOfPrivilege, "5", Threats.ElevationOfPrivilege_5),
                 Card.Create(Suit.ElevationOfPrivilege, "6", Threats.ElevationOfPrivilege_6),
@@ -121,18 +122,15 @@ namespace ThreadModelingGame.Core
             };
         }
 
-        public HashSet<Card> GetAllCards()
+        public IEnumerable<Card> GetAllCards()
         {
-            var allCards = new HashSet<Card>();
-
-            allCards.UnionWith(GetAllSpoofingCards());
-            allCards.UnionWith(GetAllTamperingCards());
-            allCards.UnionWith(GetAllRepudiationCards());
-            allCards.UnionWith(GetAllInformationDisclosureCards());
-            allCards.UnionWith(GetAllDenialOfServiceCards());
-            allCards.UnionWith(GetAllElevationOfPrivilegeCards());
-
-            return allCards;
+            return 
+                GetAllSpoofingCards()
+                .Union(GetAllTamperingCards())
+                .Union(GetAllRepudiationCards())
+                .Union(GetAllInformationDisclosureCards())
+                .Union(GetAllDenialOfServiceCards())
+                .Union(GetAllElevationOfPrivilegeCards());
         }
     }
 }
