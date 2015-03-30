@@ -1,72 +1,62 @@
-﻿using System;
+﻿using System.Linq;
 using System.Web.Mvc;
 using ThreadModelingGame.Core;
+using ThreadModelingGame.Core.Repositories;
 using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web.Filters;
 using ThreatModelingGame.Web.Models;
 
 namespace ThreatModelingGame.Web.Controllers
 {
+    [RegisteredPlayer]
     public class GameController : Controller
     {
-        private readonly IGamePool _gamePool;
-        private readonly IGameFactory _gameFactory;
+        private readonly IGameRepository _gameRepository;
+        private readonly IDealer _dealer;
         private readonly ICookieManager _cookieManager;
 
-        public GameController(IGamePool gamePool, IGameFactory gameFactory, ICookieManager cookieManager)
+        public GameController(ICookieManager cookieManager, IGameRepository gameRepository, IDealer dealer)
         {
-            _gamePool = gamePool;
-            _gameFactory = gameFactory;
             _cookieManager = cookieManager;
+            _gameRepository = gameRepository;
+            _dealer = dealer;
         }
 
         [HttpPost]
-        [RegisteredPlayer]
-        public ActionResult New(string gameName)
+        public ActionResult New(NewGameModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                //return View(model);
+            }
 
-            var game = _gameFactory.NewGame();
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var game = new Game { Name = model.Name };
 
-            game.Name = gameName;
-            game.AddPlayer(player);
-            game.DealCards();
+            game.Players.Add(player);
 
-            _gamePool.Add(game);
-
-            return RedirectToAction("Show", new { gameId = game.Id });
+            _dealer.DealCards(game);
+            _gameRepository.Add(game);
+            
+            return RedirectToAction("Index", new { gameId = game.Id });
         }
 
-        [RegisteredPlayer]
-        public ActionResult Join(string gameId)
+        public ActionResult Index(string gameId)
         {
-            if (string.IsNullOrEmpty(gameId) || !_gamePool.Contains(gameId))
+            if (string.IsNullOrEmpty(gameId) || !_gameRepository.Contains(gameId))
             {
                 return HttpNotFound();
             }
 
-            var game = _gamePool.Get(gameId);
+            var game = _gameRepository.Get(gameId);
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
-            game.AddPlayer(player);
-            game.DealCards();
-
-            return RedirectToAction("Show", new { gameId = game.Id });
-        }
-
-        [RegisteredPlayer]
-        public ActionResult Show(string gameId)
-        {
-            if (string.IsNullOrEmpty(gameId) || !_gamePool.Contains(gameId))
+            if (!game.Players.Any(p => p.Id.Equals(player.Id)))
             {
-                return HttpNotFound();
+                // Return Join
             }
 
-            var game = _gamePool.Get(gameId);
-            var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var playerInGame = game.GetPlayer(player.Id.ToString());
-
-            var model = new GameModel(game, playerInGame);
+            var model = new GameModel(game, player);
 
             return View(model);
         }

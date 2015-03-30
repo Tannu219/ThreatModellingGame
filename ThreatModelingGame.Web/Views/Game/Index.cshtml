@@ -2,14 +2,14 @@
 @model ThreatModelingGame.Web.Models.GameModel
 
 @{
-    ViewBag.Title = "Show";
+    ViewBag.Title = string.Format("{0} - Elevation of Privilege (EoP) Threat Modeling Card Game", Model.Game.Name);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="game">
     <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
     <div id="cardboard">
-        @foreach (var card in Model.CurrentPlayer.GetCards())
+        @foreach (var card in Model.PlayerCards)
         {
             <div class="card">
                 <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
@@ -20,19 +20,19 @@
 
     <div id="sidebox">
         @{
-            var gameUrl = Url.Action("Show", "Game", new { gameId = Model.Id });
+            var gameUrl = Url.Action("Index", "Game", new { gameId = Model.Game.Id });
         }
-        <h2><a href="@gameUrl"><i class="fa fa-link"></i> @Model.Name</a></h2>
+        <h2><a href="@gameUrl"><i class="fa fa-link"></i> @Model.Game.Name</a></h2>
         
         <h3>Players in Game</h3>
         <ul>
-            @foreach (var player in Model.Players)
+            @foreach (var player in Model.Game.Players)
             {
                 <li>@player.Name</li>
             }
         </ul>
 
-        <h3>@Model.CurrentPlayer.Player.Name</h3>
+        <h3>@Model.Player.Name</h3>
         @using (Html.BeginForm())
         {
             <input type="submit" value="Leave this Game" />

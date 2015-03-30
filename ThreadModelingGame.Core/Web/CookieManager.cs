@@ -9,32 +9,26 @@ namespace ThreadModelingGame.Core.Web
 
         public void IssueNewPlayerCookie(HttpResponseBase httpResponse, Player player)
         {
-            var playerCookie = new HttpCookie(PlayerCookieName)
+            var cookie = new HttpCookie(PlayerCookieName)
             {
                 HttpOnly = true,
-                Expires = DateTime.MaxValue
+                Expires = DateTime.MaxValue,
             };
 
-            playerCookie.Values.Add("Id", player.Id);
-            playerCookie.Values.Add("Name", player.Name);
+            cookie.Values.Add("Id", player.Id);
+            cookie.Values.Add("Name", player.Name);
 
             httpResponse.Cookies.Remove(PlayerCookieName);
-            httpResponse.Cookies.Add(playerCookie);
+            httpResponse.Cookies.Add(cookie);
         }
 
         public Player ExtractPlayerFromCookie(HttpRequestBase httpRequest)
         {
             try
             {
-                var playerCookie = httpRequest.Cookies[PlayerCookieName];
+                var cookie = httpRequest.Cookies[PlayerCookieName];
 
-                if (playerCookie == null)
-                    return null;
-
-                var id = playerCookie["Id"];
-                var name = playerCookie["Name"];
-
-                return new Player(id, name);
+                return cookie == null ? null : new Player(cookie["Id"]) { Name = cookie["Name"] };
             }
             catch
             {

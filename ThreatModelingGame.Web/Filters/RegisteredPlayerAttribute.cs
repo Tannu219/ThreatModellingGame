@@ -1,6 +1,3 @@
-using System.Diagnostics.Eventing.Reader;
-using System.Security.Claims;
-using System.Web.Security;
 using Ninject;
 using System.Web;
 using System.Web.Mvc;
@@ -12,9 +9,10 @@ namespace ThreatModelingGame.Web.Filters
     {
         private readonly ICookieManager _cookieManager;
 
-        public RegisteredPlayerAttribute() 
+        public RegisteredPlayerAttribute()
             : this(NinjectWebCommon.Bootstrapper.Kernel.Get<ICookieManager>())
         {
+            
         }
 
         public RegisteredPlayerAttribute(ICookieManager cookieManager)
@@ -24,9 +22,9 @@ namespace ThreatModelingGame.Web.Filters
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var player = _cookieManager.ExtractPlayerFromCookie(httpContext.Request);
+            var playerId = _cookieManager.ExtractPlayerFromCookie(httpContext.Request);
 
-            return player != null;
+            return playerId != null;
         }
     }
 }

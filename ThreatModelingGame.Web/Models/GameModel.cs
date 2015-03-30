@@ -1,30 +1,33 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ThreadModelingGame.Core;
 
 namespace ThreatModelingGame.Web.Models
 {
     public sealed class GameModel
     {
-        private readonly IGame _game;
-        private readonly PlayerInGame _player;
+        private readonly Game _game;
+        private readonly Player _player;
 
-        public GameModel(IGame game, PlayerInGame player)
+        public GameModel(Game game, Player player)
         {
             _game = game;
             _player = player;
         }
 
-        public string Id { get { return _game.Id; } }
-        public string Name { get { return _game.Name; } }
+        public Game Game
+        {
+            get { return _game; }
+        }
 
-        public PlayerInGame CurrentPlayer
+        public Player Player
         {
             get { return _player; }
         }
 
-        public IEnumerable<Player> Players
+        public IEnumerable<Card> PlayerCards
         {
-            get { return _game.GetPlayers(); }
+            get { return _game.Players.Single(p => p.Id.Equals(_player.Id)).Cards; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using ThreadModelingGame.Core;
+using ThreadModelingGame.Core.Repositories;
 using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web.Filters;
 using ThreatModelingGame.Web.Models;
@@ -9,9 +10,9 @@ namespace ThreatModelingGame.Web.Controllers
     public class PlayerController : Controller
     {
         private readonly ICookieManager _cookieManager;
-        private readonly IGamePool _gamePool;
+        private readonly IGameRepository _gamePool;
 
-        public PlayerController(ICookieManager cookieManager, IGamePool gamePool)
+        public PlayerController(ICookieManager cookieManager, IGameRepository gamePool)
         {
             _cookieManager = cookieManager;
             _gamePool = gamePool;
@@ -19,32 +20,60 @@ namespace ThreatModelingGame.Web.Controllers
 
         public ActionResult Register()
         {
-            return View(new PlayerModel());
+            return View(new ChangePlayerNameModel());
         }
 
         [HttpPost]
-        public ActionResult Details(PlayerModel model)
+        public ActionResult Register(ChangePlayerNameModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var player = model.ToPlayer();
-            var gamesWithPlayer = _gamePool.GetGamesWithPlayer(player.Id);
+            var player = new Player { Name = model.Name };
 
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
-            return View(new PlayerModel(player, gamesWithPlayer));
+            return RedirectToAction("Index", "Player");
         }
 
         [RegisteredPlayer]
-        public ActionResult Details()
+        public ActionResult Index()
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var gamesWithPlayer = _gamePool.GetGamesWithPlayer(player.Id);
+            var games = _gamePool.GetGamesByPlayer(player.Id);
 
-            return View(new PlayerModel(player, gamesWithPlayer));
+            var viewModel = new PlayerNewGameModel
+            {
+                PlayerModel = new PlayerModel(player, games),
+                ChangePlayerNameModel = new ChangePlayerNameModel { Name = player.Name }
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [RegisteredPlayer]
+        public ActionResult ChangeName(ChangePlayerNameModel model)
+        {
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var games = _gamePool.GetGamesByPlayer(player.Id);
+
+            if (!ModelState.IsValid)
+            {
+                player.Name = model.Name;
+                var playerModel = new PlayerModel(player, games);
+                var viewModel = new PlayerNewGameModel { PlayerModel = playerModel };
+
+                return View("Index", viewModel);
+            }
+
+            player.Name = model.Name;
+
+            _cookieManager.IssueNewPlayerCookie(Response, player);
+
+            return RedirectToAction("Index", "Player");
         }
     }
 }

@@ -1,28 +1,35 @@
 using System.Collections.Generic;
 using ThreadModelingGame.Core.Extensions;
+using ThreadModelingGame.Core.Repositories;
 
 namespace ThreadModelingGame.Core
 {
     public sealed class CardDeck : ICardDeck
     {
-        private readonly ICardPool _cardPool;
+        private readonly ICardRepository _cardRepository;
         private readonly Stack<Card> _cards;
 
-        public CardDeck(ICardPool cardPool)
+        public CardDeck(ICardRepository cardRepository)
         {
-            _cardPool = cardPool;
+            _cardRepository = cardRepository;
             _cards = new Stack<Card>();
         }
 
-        public void Reset()
+        public void Init()
         {
-            _cards.Clear();
-            var allCards = _cardPool.GetAllCards();
+            var allCards = _cardRepository.GetAllCards();
 
             foreach (var card in allCards)
             {
                 _cards.Push(card);
             }
+        }
+
+        public void Reset()
+        {
+            _cards.Clear();
+
+            Init();
         }
 
         public void Shuffle()

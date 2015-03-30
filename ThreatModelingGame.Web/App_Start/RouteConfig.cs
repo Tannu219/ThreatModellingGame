@@ -3,7 +3,7 @@ using System.Web.Routing;
 
 namespace ThreatModelingGame.Web
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -18,7 +18,7 @@ namespace ThreatModelingGame.Web
             routes.MapRoute(
                 name: "Game",
                 url: "Game/{gameId}",
-                defaults: new { controller = "Game", action = "Show" }
+                defaults: new { controller = "Game", action = "Index" }
             );
 
             routes.MapRoute(

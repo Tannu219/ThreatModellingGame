@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace ThreadModelingGame.Core
+namespace ThreadModelingGame.Core.Repositories
 {
-    public interface ICardPool
+    public interface ICardRepository
     {
         IEnumerable<Card> GetAllCards();
     }

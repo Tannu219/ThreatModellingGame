@@ -4,6 +4,7 @@ using Ninject.Web.Common;
 using System;
 using System.Web;
 using ThreadModelingGame.Core;
+using ThreadModelingGame.Core.Repositories;
 using ThreadModelingGame.Core.Web;
 using ThreatModelingGame.Web;
 
@@ -63,8 +64,10 @@ namespace ThreatModelingGame.Web
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<ICookieManager>().To<CookieManager>();
-            kernel.Bind<IGameFactory>().To<GameFactory>();
-            kernel.Bind<IGamePool>().ToConstant(GamePool.Instance);
+            kernel.Bind<ICardRepository>().To<CardRepository>();
+            kernel.Bind<IGameRepository>().ToConstant(GameRepository.Instance);
+            kernel.Bind<ICardDeck>().To<CardDeck>();
+            kernel.Bind<IDealer>().To<Dealer>();
         }
     }
 }

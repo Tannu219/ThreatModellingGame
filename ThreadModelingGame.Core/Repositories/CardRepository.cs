@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using ThreadModelingGame.Core.Resources;
 
-namespace ThreadModelingGame.Core
+namespace ThreadModelingGame.Core.Repositories
 {
-    public sealed class CardPool : ICardPool
+    public sealed class CardRepository : ICardRepository
     {
         private static IEnumerable<Card> GetAllSpoofingCards()
         {
