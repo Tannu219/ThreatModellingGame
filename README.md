@@ -11,7 +11,7 @@ For more information I recommend to read [Microsoft's whitepaper](http://downloa
 ## About this project
 
 ### Goal
-The ultimate goal of this project is providing remote teams a way to deal the cards and play the game in an online meeting session.
+The ultimate goal of this project is to provide remote teams a way to deal the cards and play the game in an online meeting (Lync, Skype, Google Hangouts, whatever you are using in your company!).
 
 In the first version I am focusing on providing a way of dealing the cards over the wire. The other aspects of the game, like modeling the system and writing down the bugs, can already be easily achieved with other online tools like Microsoft Office 365, Google Docs, etc.
 
