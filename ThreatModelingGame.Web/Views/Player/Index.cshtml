@@ -1,4 +1,4 @@
-﻿@model ThreatModelingGame.Web.Models.PlayerNewGameModel
+﻿@model ThreatModelingGame.Web.Models.PlayerOrNewGameModel
 
 @{
     ViewBag.Title = string.Format("{0} - Elevation of Privilege (EoP) Threat Modeling Card Game", Model.PlayerModel.Name);
@@ -28,7 +28,6 @@ else
         </ul>
     }
 }
-
 
 @using (Html.BeginForm("New", "Game"))
 {

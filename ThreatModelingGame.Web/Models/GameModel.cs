@@ -25,7 +25,7 @@ namespace ThreatModelingGame.Web.Models
             get { return _player; }
         }
 
-        public IEnumerable<Card> PlayerCards
+        public IEnumerable<Card> PlayerHand
         {
             get { return _game.Players.Single(p => p.Id.Equals(_player.Id)).Cards; }
         }

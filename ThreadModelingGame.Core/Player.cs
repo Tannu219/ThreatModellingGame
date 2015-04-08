@@ -10,6 +10,7 @@ namespace ThreadModelingGame.Core
         public Player(string id = null)
         {
             _id = id ?? Guid.NewGuid().ToString("N");
+            Cards = new List<Card>();
         }
 
         public string Id { get { return _id; } }

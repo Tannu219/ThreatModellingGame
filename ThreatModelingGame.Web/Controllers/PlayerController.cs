@@ -44,7 +44,7 @@ namespace ThreatModelingGame.Web.Controllers
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
             var games = _gamePool.GetGamesByPlayer(player.Id);
 
-            var viewModel = new PlayerNewGameModel
+            var viewModel = new PlayerOrNewGameModel
             {
                 PlayerModel = new PlayerModel(player, games),
                 ChangePlayerNameModel = new ChangePlayerNameModel { Name = player.Name }
@@ -55,7 +55,7 @@ namespace ThreatModelingGame.Web.Controllers
 
         [HttpPost]
         [RegisteredPlayer]
-        public ActionResult ChangeName(ChangePlayerNameModel model)
+        public ActionResult ChangeName([Bind(Prefix = "ChangePlayerNameModel")]ChangePlayerNameModel model)
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
             var games = _gamePool.GetGamesByPlayer(player.Id);
@@ -64,7 +64,7 @@ namespace ThreatModelingGame.Web.Controllers
             {
                 player.Name = model.Name;
                 var playerModel = new PlayerModel(player, games);
-                var viewModel = new PlayerNewGameModel { PlayerModel = playerModel };
+                var viewModel = new PlayerOrNewGameModel { PlayerModel = playerModel };
 
                 return View("Index", viewModel);
             }
