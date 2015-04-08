@@ -1,0 +1,40 @@
+﻿@model ThreatModellingGame.Web.Models.PlayerOrNewGameModel
+
+@{
+    ViewBag.Title = string.Format("{0} - Elevation of Privilege (EoP) Threat Modeling Card Game", Model.PlayerModel.Name);
+}
+
+@using (Html.BeginForm("ChangeName", "Player"))
+{
+    <h2>Your Details</h2>
+
+    @Html.LabelFor(m => m.ChangePlayerNameModel.Name)
+    @Html.EditorFor(m => m.ChangePlayerNameModel.Name)
+
+    <input type="submit" value="Change Name" />
+}
+
+<h2>Games currently participating</h2>
+@if (Model.PlayerModel.Games == null || !Model.PlayerModel.Games.Any())
+{
+    <p>You are not participating in any games at the moment.</p>
+}
+else
+{
+    foreach (var game in Model.PlayerModel.Games)
+    {
+        <ul>
+            <li>@Html.ActionLink(game.Name, "Index", "Game", new { gameId = game.Id }, null)</li>
+        </ul>
+    }
+}
+
+@using (Html.BeginForm("New", "Game"))
+{
+    <h2>Start new Game</h2>
+
+    @Html.LabelFor(m => m.NewGameModel.Name)
+    @Html.EditorFor(m => m.NewGameModel.Name)
+
+    <input type="submit" value="Create new Game" />
+}

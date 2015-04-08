@@ -1,0 +1,47 @@
+﻿@using ThreatModellingGame.Core.Extensions
+@model ThreatModellingGame.Web.Models.GameModel
+
+@{
+    ViewBag.Title = string.Format("{0} - Elevation of Privilege (EoP) Threat Modeling Card Game", Model.Game.Name);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="game">
+    <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
+    <div id="cardboard">
+        @foreach (var card in Model.PlayerHand)
+        {
+            <div class="card">
+                <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
+                <p>@card.Description</p>
+            </div>
+        }
+    </div>
+
+    <div id="sidebox">
+        @{
+            var gameUrl = Url.Action("Index", "Game", new { gameId = Model.Game.Id });
+        }
+        <h2><a href="@gameUrl"><i class="fa fa-link"></i> @Model.Game.Name</a></h2>
+        
+        <h3>Players in Game</h3>
+        <ul>
+            @foreach (var player in Model.Game.Players)
+            {
+                <li>@player.Name</li>
+            }
+        </ul>
+
+        <h3>@Model.Player.Name</h3>
+        @using (Html.BeginForm())
+        {
+            <input type="submit" value="Leave this Game" />
+        }
+        
+        <h3>Help</h3>
+        <ul>
+            <li><a href="http://en.wikipedia.org/wiki/STRIDE_(security)">STRIDE</a></li>
+            <li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></li>
+        </ul>
+    </div>
+</div>
