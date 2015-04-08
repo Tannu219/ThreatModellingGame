@@ -2,9 +2,11 @@
 
 ## Description
 The Elevation of Privilege (EoP) Card Game for remote teams.
-The original game has been created by Microsoft and is given away by Microsoft at trade shows or other events and as a PDF download asof the Adobe Illustrator source files at http://www.microsoft.com/security/sdl/adopt/eop.aspx.
+The [original game](http://www.microsoft.com/security/sdl/adopt/eop.aspx) has been created by Microsoft and is given away by Microsoft at trade shows or other events and as a [PDF download](http://www.microsoft.com/en-us/download/details.aspx?id=20303) of the Adobe Illustrator source files.
 
 The game is designed to draw people who are not security practitioners into the craft of threat modeling. The game uses a variety of techniques to do so in an enticing, supportive and non-threatening way.
+
+For more information I recommend to read [Microsoft's whitepaper](http://download.microsoft.com/download/F/A/E/FAE1434F-6D22-4581-9804-8B60C04354E4/EoP_Whitepaper.pdf).
 
 ## About this project
 
