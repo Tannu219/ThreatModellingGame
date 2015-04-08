@@ -13,11 +13,11 @@ For more information I recommend to read [Microsoft's whitepaper](http://downloa
 ### Goal
 The ultimate goal of this project is to provide remote teams a way to deal the cards and play the game in an online meeting (Lync, Skype, Google Hangouts, whatever you are using in your company!).
 
-In the first version I am focusing on providing a way of dealing the cards over the wire. The other aspects of the game, like modeling the system and writing down the bugs, can already be easily achieved with other online tools like Microsoft Office 365, Google Docs, etc.
+In the first version I am focusing on providing a way of dealing the cards online. Other aspects of the game, like modeling the system and writing down the bugs, can be easily achieved with other online tools and therefore are not required in the first version to enable remote teams to play.
 
-In later versions I might be looking to embed support for other 3rd party tools into the UI.
+In later versions I might want to embed support for popular 3rd party tools into the UI (Office 365, Google Docs, etc.).
 
-Additionally I would like to support multilingual translations in the online version!
+Additionally I would like to support multilingual translations in the online version as well!
 
 ### Status
 This project is still in work.
@@ -27,4 +27,5 @@ Currently it is hosted on Windows Azure and is available at http://threat-modeli
 
 ## Contribution
 
-More than welcome! If there is anything you want to get involved with just drop me a message! Pull requests will get accepted!
+More than welcome! If there is anything you want to get involved with just drop me a message!
+Pull requests will get accepted!
