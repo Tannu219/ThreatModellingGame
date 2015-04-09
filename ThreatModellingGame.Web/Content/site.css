@@ -115,6 +115,30 @@ input[type=submit]:hover {
     background: #fafafa;
 }
 
+.spoofing {
+    color: #006400;
+}
+
+.tampering {
+    color: #cc3300;
+}
+
+.repudiation {
+    color: #4169e1;
+}
+
+.informationdisclosure {
+    color: #ff8c00;
+}
+
+.denialofservice {
+    color: #2f4f4f;
+}
+
+.elevationofprivilege {
+    color: #ff4500;
+}
+
 #sidebox {
     border: 1px solid #ddd;
     width: 27%;

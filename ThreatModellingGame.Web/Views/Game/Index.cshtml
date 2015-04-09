@@ -11,7 +11,7 @@
     <div id="cardboard">
         @foreach (var card in Model.PlayerHand)
         {
-            <div class="card">
+            <div class="card @card.Suit.ToString().ToLower()">
                 <strong>@card.Suit.ToFriendlyString() (@card.Id)</strong>
                 <p>@card.Description</p>
             </div>

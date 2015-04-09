@@ -27,7 +27,7 @@ namespace ThreatModellingGame.Web.ViewModels
 
         public IEnumerable<Card> PlayerHand
         {
-            get { return _game.Players.Single(p => p.Id.Equals(_player.Id)).Cards; }
+            get { return _game.Players.Single(p => p.Id.Equals(_player.Id)).Cards.OrderBy(c => c.Suit); }
         }
     }
 }
