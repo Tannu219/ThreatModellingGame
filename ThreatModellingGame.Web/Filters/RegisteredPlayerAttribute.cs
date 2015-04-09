@@ -1,4 +1,3 @@
-using Ninject;
 using System.Web;
 using System.Web.Mvc;
 using ThreatModellingGame.Core.Web;
@@ -10,7 +9,7 @@ namespace ThreatModellingGame.Web.Filters
         private readonly ICookieManager _cookieManager;
 
         public RegisteredPlayerAttribute()
-            : this(NinjectWebCommon.Bootstrapper.Kernel.Get<ICookieManager>())
+            : this(DependencyResolver.Current.GetService<ICookieManager>())
         {
             
         }

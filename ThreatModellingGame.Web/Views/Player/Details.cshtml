@@ -4,10 +4,10 @@
     ViewBag.Title = Model.PlayerViewModel.Name;
 }
 
+@Html.ValidationSummary()
+
 @using (Html.BeginForm("ChangeName", "Player"))
 {
-    @Html.ValidationSummary()
-    
     <h2>Your Details</h2>
     
     @Html.LabelFor(m => m.ChangePlayerNameViewModel.Name)
@@ -33,8 +33,6 @@ else
 
 @using (Html.BeginForm("CreateGame", "Player"))
 {
-    @Html.ValidationSummary()
-    
     <h2>Start new Game</h2>
 
     @Html.LabelFor(m => m.NewGameViewModel.Name)

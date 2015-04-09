@@ -10,23 +10,28 @@ header, main, footer {
     margin: 0 auto;
 }
 
+footer {
+    margin-top: 2em;
+    border-top: 1px solid #eaeaea;
+}
+
 a:link {
-    color: #c30;
+    color: #483d8b;
     text-decoration: none;
 }
 
 a:visited {
-    color: #c30;
+    color: #483d8b;
     text-decoration: none;
 }
 
 a:hover {
-    color: #c30;
+    color: #483d8b;
     text-decoration: underline;
 }
 
 a:active {
-    color: #c30;
+    color: #483d8b;
     text-decoration: none;
 }
 
