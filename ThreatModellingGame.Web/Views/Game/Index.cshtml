@@ -20,7 +20,7 @@
 
     <div id="sidebox">
         @{
-            var gameUrl = Url.Action("Index", "Game", new { gameId = Model.Game.Id });
+            var gameUrl = Url.Action("Index", "Game", new { id = Model.Game.Id });
         }
         <h2><a href="@gameUrl"><i class="fa fa-link"></i> @Model.Game.Name</a></h2>
         

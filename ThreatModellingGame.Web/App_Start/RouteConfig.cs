@@ -17,7 +17,7 @@ namespace ThreatModellingGame.Web
 
             routes.MapRoute(
                 name: "Game",
-                url: "Game/{gameId}",
+                url: "Game/{id}",
                 defaults: new { controller = "Game", action = "Index" }
             );
 

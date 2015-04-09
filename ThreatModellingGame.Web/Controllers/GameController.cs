@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 using ThreatModellingGame.Core;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
@@ -38,28 +39,80 @@ namespace ThreatModellingGame.Web.Controllers
 
             _dealer.DealCards(game);
             _gameRepository.Add(game);
-            
-            return RedirectToAction("Index", new { gameId = game.Id });
+
+            return RedirectToAction("Index", new { id = game.Id });
         }
 
-        public ActionResult Index(string gameId)
+        public ActionResult Index(string id)
         {
-            if (string.IsNullOrEmpty(gameId) || !_gameRepository.Contains(gameId))
+            if (!GameExists(id))
             {
                 return HttpNotFound();
             }
 
-            var game = _gameRepository.Get(gameId);
+            var game = _gameRepository.Get(id);
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
-            if (!game.Players.Any(p => p.Id.Equals(player.Id)))
+            if (!IsPlayerInGame(game, player))
             {
-                // Return Join
+                return RedirectToAction("ConfirmJoin", new { id = game.Id });
             }
 
             var model = new GameModel(game, player);
 
             return View(model);
+        }
+
+        public ActionResult ConfirmJoin(string id)
+        {
+            if (!GameExists(id))
+            {
+                return HttpNotFound();
+            }
+
+            var game = _gameRepository.Get(id);
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+
+            if (IsPlayerInGame(game, player))
+            {
+                return RedirectToAction("Index", new { id = game.Id });
+            }
+
+            var model = new GameModel(game, player);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Join([Bind(Prefix = "Game")]string id)
+        {
+            if (!GameExists(id))
+            {
+                return HttpNotFound();
+            }
+
+            var game = _gameRepository.Get(id);
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+
+            if (IsPlayerInGame(game, player))
+            {
+                return RedirectToAction("Index", new { id = game.Id });
+            }
+
+            game.Players.Add(player);
+            _dealer.DealCards(game);
+
+            return RedirectToAction("Index", new { id = game.Id });
+        }
+
+        private bool GameExists(string gameId)
+        {
+            return !string.IsNullOrEmpty(gameId) && _gameRepository.Contains(gameId);
+        }
+
+        private static bool IsPlayerInGame(Game game, Player player)
+        {
+            return game.Players.Any(p => p.Id.Equals(player.Id));
         }
     }
 }

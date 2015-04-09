@@ -24,7 +24,7 @@ else
     foreach (var game in Model.PlayerModel.Games)
     {
         <ul>
-            <li>@Html.ActionLink(game.Name, "Index", "Game", new { gameId = game.Id }, null)</li>
+            <li>@Html.ActionLink(game.Name, "Index", "Game", new { id = game.Id }, null)</li>
         </ul>
     }
 }
