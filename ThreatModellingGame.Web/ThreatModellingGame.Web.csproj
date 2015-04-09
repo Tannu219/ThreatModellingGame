@@ -132,7 +132,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Player\Register.cshtml" />
-    <None Include="Views\Player\Details.cshtml" />
+    <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Shared\_Page.cshtml" />
     <Content Include="Views\Game\ConfirmJoin.cshtml" />
