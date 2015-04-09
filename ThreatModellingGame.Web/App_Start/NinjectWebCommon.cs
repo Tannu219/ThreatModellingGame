@@ -1,8 +1,8 @@
+using System;
+using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
-using System;
-using System.Web;
 using ThreatModellingGame.Core;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
@@ -13,20 +13,20 @@ using ThreatModellingGame.Web;
 
 namespace ThreatModellingGame.Web
 {
-    public static class NinjectWebCommon
+    public static class NinjectWebCommon 
     {
-        public static readonly Bootstrapper Bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start()
+        public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             Bootstrapper.Initialize(CreateKernel);
         }
-
+        
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -34,7 +34,7 @@ namespace ThreatModellingGame.Web
         {
             Bootstrapper.ShutDown();
         }
-
+        
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -68,6 +68,6 @@ namespace ThreatModellingGame.Web
             kernel.Bind<IGameRepository>().ToConstant(GameRepository.Instance);
             kernel.Bind<ICardDeck>().To<CardDeck>();
             kernel.Bind<IDealer>().To<Dealer>();
-        }
+        }        
     }
 }
