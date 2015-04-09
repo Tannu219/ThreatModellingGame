@@ -1,0 +1,44 @@
+﻿@model ThreatModellingGame.Web.ViewModels.PlayerDetailsViewModel
+
+@{
+    ViewBag.Title = Model.PlayerViewModel.Name;
+}
+
+@using (Html.BeginForm("ChangeName", "Player"))
+{
+    @Html.ValidationSummary()
+    
+    <h2>Your Details</h2>
+    
+    @Html.LabelFor(m => m.ChangePlayerNameViewModel.Name)
+    @Html.EditorFor(m => m.ChangePlayerNameViewModel.Name)
+
+    <input type="submit" value="Change Name" />
+}
+
+<h2>Games currently participating</h2>
+@if (Model.PlayerViewModel.Games == null || !Model.PlayerViewModel.Games.Any())
+{
+    <p>You are not participating in any games at the moment.</p>
+}
+else
+{
+    foreach (var game in Model.PlayerViewModel.Games)
+    {
+        <ul>
+            <li>@Html.ActionLink(game.Name, "Index", "Game", new { id = game.Id }, null)</li>
+        </ul>
+    }
+}
+
+@using (Html.BeginForm("CreateGame", "Player"))
+{
+    @Html.ValidationSummary()
+    
+    <h2>Start new Game</h2>
+
+    @Html.LabelFor(m => m.NewGameViewModel.Name)
+    @Html.EditorFor(m => m.NewGameViewModel.Name)
+
+    <input type="submit" value="Create new Game" />
+}

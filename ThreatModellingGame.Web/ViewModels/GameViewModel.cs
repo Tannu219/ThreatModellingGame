@@ -2,14 +2,14 @@
 using System.Linq;
 using ThreatModellingGame.Core;
 
-namespace ThreatModellingGame.Web.Models
+namespace ThreatModellingGame.Web.ViewModels
 {
-    public sealed class GameModel
+    public sealed class GameViewModel
     {
         private readonly Game _game;
         private readonly Player _player;
 
-        public GameModel(Game game, Player player)
+        public GameViewModel(Game game, Player player)
         {
             _game = game;
             _player = player;

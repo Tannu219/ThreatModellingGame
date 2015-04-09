@@ -1,16 +1,16 @@
-﻿@using System.Configuration
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    @*<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:500,900,400italic,700,500italic,400">*@
+
+    <title>@string.Format("{0} - {1}", ViewBag.Title, AppConfig.ApplicationName)</title>
+
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/content/site.css">
     
-    @if (bool.Parse(ConfigurationManager.AppSettings["Is_Production_Environment"]))
+    @if (AppConfig.IsProductionEnvironment)
     { 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

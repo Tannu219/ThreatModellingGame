@@ -6,7 +6,7 @@ using ThreatModellingGame.Core;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
 using ThreatModellingGame.Web.Filters;
-using ThreatModellingGame.Web.Models;
+using ThreatModellingGame.Web.ViewModels;
 
 namespace ThreatModellingGame.Web.Controllers
 {
@@ -24,25 +24,6 @@ namespace ThreatModellingGame.Web.Controllers
             _dealer = dealer;
         }
 
-        [HttpPost]
-        public ActionResult New([Bind(Prefix = "NewGameModel")]NewGameModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                //return View(model);
-            }
-
-            var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var game = new Game { Name = model.Name };
-
-            game.Players.Add(player);
-
-            _dealer.DealCards(game);
-            _gameRepository.Add(game);
-
-            return RedirectToAction("Index", new { id = game.Id });
-        }
-
         public ActionResult Index(string id)
         {
             if (!GameExists(id))
@@ -58,7 +39,7 @@ namespace ThreatModellingGame.Web.Controllers
                 return RedirectToAction("ConfirmJoin", new { id = game.Id });
             }
 
-            var model = new GameModel(game, player);
+            var model = new GameViewModel(game, player);
 
             return View(model);
         }
@@ -78,20 +59,20 @@ namespace ThreatModellingGame.Web.Controllers
                 return RedirectToAction("Index", new { id = game.Id });
             }
 
-            var model = new GameModel(game, player);
+            var viewModel = new JoinGameViewModel { GameId = game.Id, Name = game.Name };
 
-            return View(model);
+            return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Join([Bind(Prefix = "Game")]string id)
+        public ActionResult Join(JoinGameViewModel viewModel)
         {
-            if (!GameExists(id))
+            if (!GameExists(viewModel.GameId))
             {
                 return HttpNotFound();
             }
 
-            var game = _gameRepository.Get(id);
+            var game = _gameRepository.Get(viewModel.GameId);
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
             if (IsPlayerInGame(game, player))

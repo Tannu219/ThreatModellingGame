@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using ThreatModellingGame.Core;
 
-namespace ThreatModellingGame.Web.Models
+namespace ThreatModellingGame.Web.ViewModels
 {
-    public sealed class PlayerModel
+    public sealed class PlayerViewModel
     {
         private readonly Player _player;
         private readonly IEnumerable<Game> _gamesByPlayer;
 
-        public PlayerModel(Player player, IEnumerable<Game> gamesByPlayer)
+        public PlayerViewModel(Player player, IEnumerable<Game> gamesByPlayer)
         {
             _player = player;
             _gamesByPlayer = gamesByPlayer;

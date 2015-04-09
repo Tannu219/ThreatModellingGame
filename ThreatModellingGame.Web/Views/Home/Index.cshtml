@@ -1,11 +1,11 @@
-﻿@model ThreatModellingGame.Web.Models.IndexModel
+﻿@model ThreatModellingGame.Web.ViewModels.IndexViewModel
 
 @{
-    ViewBag.Title = "Home - Elevation of Privilege (EoP) Threat Modeling Card Game";
+    ViewBag.Title = "Home";
 }
 
 <h2>Welcome</h2>
 
 <p>
-    @Html.ActionLink("Start playing", "Index", "Player")
+    @Html.ActionLink("Start playing", "Details", "Player")
 </p>

@@ -1,14 +1,14 @@
-﻿@model ThreatModellingGame.Web.Models.GameModel
+﻿@model ThreatModellingGame.Web.ViewModels.JoinGameViewModel
 
 @{
-    ViewBag.Title = string.Format("Join {0}", Model.Game.Name);
+    ViewBag.Title = string.Format("Join {0}", Model.Name);
 }
 
 @using (Html.BeginForm("Join", "Game"))
 {
-    <h2>Do you want to join the game &quot;@Model.Game.Name&quot;?</h2>
+    <h2>Do you want to join the game &quot;@Model.Name&quot;?</h2>
 
-    if (Model.Game.Players.Any())
+    @*if (Model.Game.Players.Any())
     {
         <p>The following players are currently in the game:</p>
         <ul>
@@ -21,10 +21,10 @@
     else
     {
         <p>No players in this game at the moment.</p>
-    }
+    }*@
     
-    @Html.HiddenFor(m => m.Game.Id)
+    @Html.HiddenFor(m => m.GameId)
+    @Html.HiddenFor(m => m.Name)
 
     <input type="submit" value="Join Game" />
 }
-

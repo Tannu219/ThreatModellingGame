@@ -1,13 +1,13 @@
 ﻿@using ThreatModellingGame.Core.Extensions
-@model ThreatModellingGame.Web.Models.GameModel
+@model ThreatModellingGame.Web.ViewModels.GameViewModel
 
 @{
-    ViewBag.Title = string.Format("{0} - Elevation of Privilege (EoP) Threat Modeling Card Game", Model.Game.Name);
+    ViewBag.Title = Model.Game.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="game">
-    <h1>@Html.ActionLink("Elevation of Privilege (EoP) Threat Modeling Card Game", "Index", "Home")</h1>
+    <h1>@Html.ActionLink(AppConfig.ApplicationName, "Index", "Home")</h1>
     <div id="cardboard">
         @foreach (var card in Model.PlayerHand)
         {

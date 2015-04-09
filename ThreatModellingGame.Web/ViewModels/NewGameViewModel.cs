@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ThreatModellingGame.Web.Models
+namespace ThreatModellingGame.Web.ViewModels
 {
-    public sealed class ChangePlayerNameModel
+    public sealed class NewGameViewModel
     {
         [Required]
         public string Name { get; set; }
