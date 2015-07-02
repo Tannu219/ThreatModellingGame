@@ -24,14 +24,17 @@
                 }
             </div>
             <div class="col-md-4">
-                <h1>Game: @Model.Game.Name</h1>
-                <h3>URL</h3>
+                <h1>@(AllText.Game): @Model.Game.Name</h1>
+                <h3>@AllText.URL</h3>
                 @{
                     var gameUrl = Url.Action("Index", "Game", new { id = Model.Game.Id }, "http");
                 }
-                <p></p><a href="@gameUrl">@gameUrl</a></p>
+                <p><a href="@gameUrl">@gameUrl</a></p>
+                <p class="bg-info">
+                    @AllText.URL_Share_Info
+                </p>
 
-                <h3>Players in Game</h3>
+                <h3>@AllText.Players</h3>
                 <ul>
                     @foreach (var player in Model.Game.Players)
                     {
@@ -39,13 +42,13 @@
                     }
                 </ul>
 
-                <h3>Help</h3>
+                <h3>@AllText.Help</h3>
                 <ul>
                     <li><a href="http://en.wikipedia.org/wiki/STRIDE_(security)">STRIDE</a></li>
                     <li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top 10</a></li>
                 </ul>
 
-                <h3>Credits</h3>
+                <h3>@AllText.Credits</h3>
                 <p>
                     @(AllText.Game_Invented_By_Microsoft).<br />
                     @AllText.Powered_By <a href="http://dusted.codes/">Dustin Moris Gorski</a>.

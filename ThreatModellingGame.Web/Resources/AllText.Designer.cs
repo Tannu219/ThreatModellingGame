@@ -142,6 +142,24 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        public static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game.
+        /// </summary>
+        public static string Game {
+            get {
+                return ResourceManager.GetString("Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game originally invented by Microsoft.
         /// </summary>
         public static string Game_Invented_By_Microsoft {
@@ -165,6 +183,15 @@ namespace ThreatModellingGame.Web.Resources {
         public static string Get_Started {
             get {
                 return ResourceManager.GetString("Get_Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -277,6 +304,15 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Players {
+            get {
+                return ResourceManager.GetString("Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Online version powered by.
         /// </summary>
         public static string Powered_By {
@@ -318,6 +354,24 @@ namespace ThreatModellingGame.Web.Resources {
         public static string Start_Playing {
             get {
                 return ResourceManager.GetString("Start_Playing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL.
+        /// </summary>
+        public static string URL {
+            get {
+                return ResourceManager.GetString("URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share this URL with your team mates. They can join the game by copy pasting it into the browser..
+        /// </summary>
+        public static string URL_Share_Info {
+            get {
+                return ResourceManager.GetString("URL_Share_Info", resourceCulture);
             }
         }
         

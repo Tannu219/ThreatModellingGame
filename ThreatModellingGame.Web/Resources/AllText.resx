@@ -210,4 +210,22 @@
   <data name="Want_To_Join_Game" xml:space="preserve">
     <value>Do you want to join the game</value>
   </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="URL_Share_Info" xml:space="preserve">
+    <value>Share this URL with your team mates. They can join the game by copy pasting it into the browser.</value>
+  </data>
 </root>
