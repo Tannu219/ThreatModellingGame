@@ -5,9 +5,9 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Welcome fellow security enthusiast</h2>
-<p>This is the first beta version of the @(string.Format("{0} - {1}", AllText.App_Title, AllText.App_SubTitle)).</p>
-<p>For more information please visit the <a href="https://github.com/dustinmoris/ThreatModellingGame">open source GitHub repository</a>.</p>
+<h2>@AllText.Home_Index_Welcome</h2>
+<p>@AllText.Home_Index_Intro @(string.Format("{0} - {1}", AllText.App_Title, AllText.App_SubTitle)).</p>
+<p>@AllText.Home_Index_GitHub_Reference <a href="https://github.com/dustinmoris/ThreatModellingGame">open source GitHub repository</a>.</p>
 <p>
-    @Html.ActionLink("Start playing", "Details", "Player", null, new { @class = "btn btn-lg btn-success" })
+    @Html.ActionLink(AllText.Start_Playing, "Details", "Player", null, new { @class = "btn btn-lg btn-success" })
 </p>

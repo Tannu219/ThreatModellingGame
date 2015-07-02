@@ -77,5 +77,59 @@ namespace ThreatModellingGame.Web.Resources {
                 return ResourceManager.GetString("App_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game originally invented by Microsoft.
+        /// </summary>
+        public static string Game_Invented_By_Microsoft {
+            get {
+                return ResourceManager.GetString("Game_Invented_By_Microsoft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For more information please visit the.
+        /// </summary>
+        public static string Home_Index_GitHub_Reference {
+            get {
+                return ResourceManager.GetString("Home_Index_GitHub_Reference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the first beta version of the.
+        /// </summary>
+        public static string Home_Index_Intro {
+            get {
+                return ResourceManager.GetString("Home_Index_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome fellow security enthusiast.
+        /// </summary>
+        public static string Home_Index_Welcome {
+            get {
+                return ResourceManager.GetString("Home_Index_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online version powered by.
+        /// </summary>
+        public static string Powered_By {
+            get {
+                return ResourceManager.GetString("Powered_By", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start playing.
+        /// </summary>
+        public static string Start_Playing {
+            get {
+                return ResourceManager.GetString("Start_Playing", resourceCulture);
+            }
+        }
     }
 }

@@ -123,4 +123,22 @@
   <data name="App_Title" xml:space="preserve">
     <value>Elevation of Privilege (EoP)</value>
   </data>
+  <data name="Game_Invented_By_Microsoft" xml:space="preserve">
+    <value>Game originally invented by Microsoft</value>
+  </data>
+  <data name="Home_Index_GitHub_Reference" xml:space="preserve">
+    <value>For more information please visit the</value>
+  </data>
+  <data name="Home_Index_Intro" xml:space="preserve">
+    <value>This is the first beta version of the</value>
+  </data>
+  <data name="Home_Index_Welcome" xml:space="preserve">
+    <value>Welcome fellow security enthusiast</value>
+  </data>
+  <data name="Powered_By" xml:space="preserve">
+    <value>Online version powered by</value>
+  </data>
+  <data name="Start_Playing" xml:space="preserve">
+    <value>Start playing</value>
+  </data>
 </root>
