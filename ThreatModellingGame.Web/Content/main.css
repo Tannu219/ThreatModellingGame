@@ -48,7 +48,7 @@ body {
     margin: 20px 0;
 }
 
-    .main .btn {
+    .main .btn-start-game {
         margin-top: 1em;
         padding: 14px 24px;
         font-size: 21px;
@@ -98,7 +98,7 @@ form p {
     margin: 2em 0;
 }
 
-label, input {
+label {
     display: block;
 }
 
@@ -120,7 +120,7 @@ label, input {
         padding: .7em 1em;
         background: #fafafa;
         color: #333;
-        font-family: 'Roboto', sans-serif;
+        font-family: sans-serif;
         font-weight: 500;
         cursor: pointer;
         -webkit-box-sizing: border-box;
@@ -151,6 +151,14 @@ label, input {
         margin: 0;
         padding: 0;
     }
+
+.btn {
+    color: #fff !important;
+    -ms-border-radius: 3px;
+        border-radius: 3px;
+        margin: .5em 0;
+        padding: .6em 1em;
+}
 
 p.bg-info {
     padding: 1em;

@@ -14,6 +14,7 @@
     @Html.EditorFor(m => m.Name)
 
     <input type="submit" value="@AllText.Change_Name" />
-    
+    @Html.ActionLink(AllText.Cancel, "Details", "Player", null, new { @class = "btn btn-danger" })
+
     @Html.ValidationSummary()
 }
