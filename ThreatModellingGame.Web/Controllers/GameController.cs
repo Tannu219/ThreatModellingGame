@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Routing;
 using ThreatModellingGame.Core;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
@@ -54,6 +52,7 @@ namespace ThreatModellingGame.Web.Controllers
 
         [HttpPost]
         [RegisteredPlayer]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateGame(NewGameViewModel viewModel)
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);

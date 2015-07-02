@@ -13,6 +13,8 @@
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
 
+    @Html.AntiForgeryToken()
+    
     <input type="submit" value="@AllText.Create_New_Game" />
     @Html.ActionLink(AllText.Cancel, "Details", "Player", null, new { @class = "btn btn-danger" })
     

@@ -13,6 +13,8 @@
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
 
+    @Html.AntiForgeryToken()
+
     <input type="submit" value="@AllText.Get_Started" />
     
     @Html.ValidationSummary()

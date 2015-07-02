@@ -26,6 +26,7 @@ namespace ThreatModellingGame.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(ChangePlayerNameViewModel viewModel, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -73,6 +74,7 @@ namespace ThreatModellingGame.Web.Controllers
 
         [HttpPost]
         [RegisteredPlayer]
+        [ValidateAntiForgeryToken]
         public ActionResult ChangeName(ChangePlayerNameViewModel viewModel)
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
