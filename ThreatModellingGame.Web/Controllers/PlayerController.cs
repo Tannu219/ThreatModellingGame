@@ -18,13 +18,15 @@ namespace ThreatModellingGame.Web.Controllers
             _gameRepository = gameRepository;
         }
 
-        public ActionResult Register()
+        public ActionResult Register(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
+
             return View(new ChangePlayerNameViewModel());
         }
 
         [HttpPost]
-        public ActionResult Register(ChangePlayerNameViewModel viewModel)
+        public ActionResult Register(ChangePlayerNameViewModel viewModel, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -34,6 +36,18 @@ namespace ThreatModellingGame.Web.Controllers
             var player = new Player { Name = viewModel.Name };
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
+            return string.IsNullOrEmpty(returnUrl) 
+                ? RedirectToAction("Details", "Player") 
+                : RedirectToLocal(returnUrl);
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            
             return RedirectToAction("Details", "Player");
         }
 

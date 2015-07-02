@@ -5,7 +5,7 @@
     ViewBag.Title = AllText.Register;
 }
 
-@using (Html.BeginForm("Register", "Player"))
+@using (Html.BeginForm("Register", "Player", new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     <h2>@AllText.Register_Title</h2>
     <p>@AllText.Register_Info</p>
