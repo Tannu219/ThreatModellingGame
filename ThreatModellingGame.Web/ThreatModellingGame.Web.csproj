@@ -143,6 +143,7 @@
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Shared\_Page.cshtml" />
     <Content Include="Views\Game\ConfirmJoin.cshtml" />
+    <Content Include="Views\Game\CreateGame.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

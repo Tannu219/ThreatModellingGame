@@ -13,9 +13,9 @@ namespace ThreatModellingGame.Web.Controllers
     [RegisteredPlayer]
     public class GameController : Controller
     {
+        private readonly ICookieManager _cookieManager;
         private readonly IGameRepository _gameRepository;
         private readonly IDealer _dealer;
-        private readonly ICookieManager _cookieManager;
 
         public GameController(ICookieManager cookieManager, IGameRepository gameRepository, IDealer dealer)
         {
@@ -42,6 +42,34 @@ namespace ThreatModellingGame.Web.Controllers
             var model = new GameViewModel(game, player);
 
             return View(model);
+        }
+
+        [RegisteredPlayer]
+        public ActionResult CreateGame()
+        {
+            var viewModel = new NewGameViewModel();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [RegisteredPlayer]
+        public ActionResult CreateGame(NewGameViewModel viewModel)
+        {
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+
+            if (!ModelState.IsValid)
+            {
+                return View("CreateGame", viewModel);
+            }
+
+            var game = new Game { Name = viewModel.Name };
+            game.Players.Add(player);
+
+            _dealer.DealCards(game);
+            _gameRepository.Add(game);
+
+            return RedirectToAction("Index", "Game", new { id = game.Id });
         }
 
         public ActionResult ConfirmJoin(string id)

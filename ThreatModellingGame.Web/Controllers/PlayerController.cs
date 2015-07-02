@@ -73,25 +73,25 @@ namespace ThreatModellingGame.Web.Controllers
             return RedirectToAction("Details", "Player");
         }
 
-        [HttpPost]
-        public ActionResult CreateGame([Bind(Include = "NewGameViewModel")]PlayerDetailsViewModel viewModel)
-        {
-            var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var games = _gameRepository.GetGamesByPlayer(player.Id);
+        //[HttpPost]
+        //public ActionResult CreateGame([Bind(Include = "NewGameViewModel")]PlayerDetailsViewModel viewModel)
+        //{
+        //    var player = _cookieManager.ExtractPlayerFromCookie(Request);
+        //    var games = _gameRepository.GetGamesByPlayer(player.Id);
 
-            if (!ModelState.IsValid)
-            {
-                viewModel.PlayerViewModel = new PlayerViewModel(player, games);
-                return View("Details", viewModel);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        viewModel.PlayerViewModel = new PlayerViewModel(player, games);
+        //        return View("Details", viewModel);
+        //    }
 
-            var game = new Game { Name = viewModel.NewGameViewModel.Name };
-            game.Players.Add(player);
+        //    var game = new Game { Name = viewModel.NewGameViewModel.Name };
+        //    game.Players.Add(player);
 
-            _dealer.DealCards(game);
-            _gameRepository.Add(game);
+        //    _dealer.DealCards(game);
+        //    _gameRepository.Add(game);
 
-            return RedirectToAction("Index", "Game", new { id = game.Id });
-        }
+        //    return RedirectToAction("Index", "Game", new { id = game.Id });
+        //}
     }
 }

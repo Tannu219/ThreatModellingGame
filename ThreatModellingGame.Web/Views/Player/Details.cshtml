@@ -31,12 +31,6 @@ else
     }
 }
 
-@using (Html.BeginForm("CreateGame", "Player"))
-{
-    <h2>Start new Game</h2>
-
-    @Html.LabelFor(m => m.NewGameViewModel.Name)
-    @Html.EditorFor(m => m.NewGameViewModel.Name)
-
-    <input type="submit" value="Create new Game" />
-}
+<p>
+    @Html.ActionLink("Create new Game", "CreateGame", "Game", null, new { @class = "btn btn-lg btn-success" })
+</p>

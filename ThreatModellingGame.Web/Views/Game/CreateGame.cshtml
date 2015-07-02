@@ -1,0 +1,17 @@
+﻿@model ThreatModellingGame.Web.ViewModels.NewGameViewModel
+
+@{
+    ViewBag.Title = "Create new Game";
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm("CreateGame", "Game"))
+{
+    <h2>Create new Game</h2>
+
+    @Html.LabelFor(m => m.Name)
+    @Html.EditorFor(m => m.Name)
+
+    <input type="submit" value="Create Game" />
+}
