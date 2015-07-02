@@ -197,6 +197,10 @@ p.bg-info {
     background: #fff;
 }
 
+.card p {
+    text-align: left;
+}
+
 .hand {
     display: flex;
     -ms-flex-flow: row wrap;
