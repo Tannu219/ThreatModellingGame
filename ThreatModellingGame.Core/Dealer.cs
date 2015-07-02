@@ -24,7 +24,7 @@ namespace ThreatModellingGame.Core
                 var card = _cardDeck.DrawCard();
                 var nextPlayer = GetNextPlayer(game.Players);
                 
-                nextPlayer.Cards.Add(card);
+                nextPlayer.Hand.Add(card);
             }
         }
 
@@ -32,13 +32,13 @@ namespace ThreatModellingGame.Core
         {
             foreach (var player in players)
             {
-                player.Cards.Clear();
+                player.Hand.Clear();
             }
         }
 
         private static Player GetNextPlayer(IEnumerable<Player> players)
         {
-            return players.OrderBy(p => p.Cards.Count).First();
+            return players.OrderBy(p => p.Hand.Count).First();
         }
     }
 }

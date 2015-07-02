@@ -3,9 +3,6 @@ using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
-using ThreatModellingGame.Core;
-using ThreatModellingGame.Core.Repositories;
-using ThreatModellingGame.Core.Web;
 using ThreatModellingGame.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
@@ -63,11 +60,7 @@ namespace ThreatModellingGame.Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ICookieManager>().To<CookieManager>();
-            kernel.Bind<ICardRepository>().To<CardRepository>();
-            kernel.Bind<IGameRepository>().ToConstant(GameRepository.Instance);
-            kernel.Bind<ICardDeck>().To<CardDeck>();
-            kernel.Bind<IDealer>().To<Dealer>();
+            DependencyConfig.Setup(kernel);
         }        
     }
 }
