@@ -90,6 +90,11 @@ a:active {
     text-decoration: none;
 }
 
+p {
+    text-align: justify;
+    line-height: 1.8em;
+}
+
 form {
     margin: 2em 0;
 }

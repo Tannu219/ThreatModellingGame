@@ -228,4 +228,10 @@
   <data name="URL_Share_Info" xml:space="preserve">
     <value>Share this URL with your team mates. They can join the game by copy pasting it into the browser.</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>

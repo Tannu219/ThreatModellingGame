@@ -1,0 +1,39 @@
+﻿@using ThreatModellingGame.Web.Resources
+@model ThreatModellingGame.Web.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = AllText.About;
+}
+
+<h2>@AllText.About</h2>
+
+<p>The Elevation of Privilege game is designed to be the easiest way to start looking at your design from a security perspective. It's one way to threat model, intended to be picked up and used by any development group.</p>
+
+<p>Because the game uses STRIDE threats, it gives you a framework for thinking, and specific actionable examples of those threats.</p>
+
+<h4>STRIDE stands for:</h4>
+<ul>
+    <li>Spoofing: Impersonating something or someone else.</li>
+    <li>Tampering: Modifying data or code.</li>
+    <li>Repudiation: Claiming not to have performed an action.</li>
+    <li>Information Disclosure: Exposing information to someone not authorized to see it.</li>
+    <li>Denial of Service: Denying or degrading service to users.</li>
+    <li>Elevation of Privilege: Gain capabilities without proper authorization.</li>
+</ul>
+
+<h2>Preparing to play</h2>
+<p>An Elevation of Privilege game is usually initiated for one of a few reasons. Those include because a group of developers has a system or feature to threat model, because someone wants to learn or teach the skill, or because someone has picked up a copy of the game and wants to explore.</p>
+<p>This is a super-set of all non-game motivations to threat model. In any case, it is important to start with a system to be threat modelled, and an architectural diagram of that system should be available. A whiteboard diagram is ideal if participants agree it is reasonably accurate and it shows programs, data flows and data stores. If no such diagram exists, it needs to be created before play starts.</p>
+<p>Players need a way to track bugs. Pen and paper is fast and easy.</p>
+
+<h2>How to play the game</h2>
+
+<p>Play starts by dealing out the entire deck, and ensuring players are familiar with the rules. Shuffling the deck is optional but encouraged because it puts players in mind of a game. Players should be encouraged to put their cards on the table, and arrange them by suit. Players are encouraged to help each other, unless they’re a particularly cut-throat bunch.</p>
+
+<h3>The rules are as follows</h3>
+<p>Play starts with the player with the 2 of Tampering, and then proceeds clockwise around the table in tricks. Starting with the 2 of Tampering is a design choice, see below.</p>
+<p>Each trick is played ‘in’ the suit that was led. That is, each player must play a card of that suit if they have one. Playing a card consists of reading it aloud, and explaining how it applies to the system being threat modelled, and putting it in the centre of the table.</p>
+<p>Playing a card where a player knows of a compensating control is less exciting, but still valid, because it allows for discussion of compensating controls, and helps newcomers to threat modelling understand the cycle of discovery and mitigation.</p>
+<p>If the player has no cards left in the suit that was led, then they may play a card from any suit. After each player has played a card, the trick is won by the player who has played the highest card in either the suit that was led or in the ‘trump’ suit, Elevation of Privilege.</p>
+<p>The highest card is the highest value card played in the suit led, unless there was one or more trump card played. If a trump card has been played, the highest value trump card is the winning card.</p>
+<p>A scorekeeper takes note of the threat and who found it. A point is allocated for each threat played, and optionally each brainstormed threat (see design tradeoffs.) The written rule says to only count the highest card which was actually connected to the system being developed, but in practice this is sometimes discarded to give a deeper involvement to beginners.</p>

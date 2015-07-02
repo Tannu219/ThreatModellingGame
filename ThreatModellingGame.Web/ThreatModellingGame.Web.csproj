@@ -145,6 +145,7 @@
     <Content Include="Views\Game\ConfirmJoin.cshtml" />
     <Content Include="Views\Game\CreateGame.cshtml" />
     <Content Include="Views\Player\ChangeName.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

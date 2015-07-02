@@ -5,13 +5,12 @@
 
 <div class="container">
     <div class="header clearfix">
-        @*<nav>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">About</a></li>
-                    <li role="presentation"><a href="#">Contact</a></li>
-                </ul>
-            </nav>*@
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation">@Html.ActionLink(AllText.Home, "Index", "Home")</li>
+                <li role="presentation">@Html.ActionLink(AllText.About, "About", "Home")</li>
+            </ul>
+        </nav>
         <h1>
             @AllText.App_Title<br />
             @AllText.App_SubTitle
