@@ -101,7 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\site.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,6 +116,11 @@
     <Compile Include="Filters\RegisteredPlayerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AllText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllText.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
@@ -151,7 +156,12 @@
       <Name>ThreatModellingGame.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AllText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AllText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

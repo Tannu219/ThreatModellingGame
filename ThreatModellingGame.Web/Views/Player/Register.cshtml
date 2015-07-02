@@ -9,9 +9,9 @@
 @using (Html.BeginForm("Register", "Player"))
 {
     <h2>Please enter your name to get started.</h2>
-    
+
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
-    
-    <input type="submit" value="Get Started"/>
+
+    <input type="submit" value="Get Started" />
 }

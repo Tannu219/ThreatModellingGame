@@ -1,4 +1,6 @@
 ﻿@using ThreatModellingGame.Core.Extensions
+@using ThreatModellingGame.Web.Resources
+
 @model ThreatModellingGame.Web.ViewModels.GameViewModel
 
 @{
@@ -7,7 +9,7 @@
 }
 
 <div id="game">
-    <h1>@Html.ActionLink(AppConfig.ApplicationName, "Index", "Home")</h1>
+    <h1>@Html.ActionLink(string.Format("{0} - {1}", AllText.App_Title, AllText.App_SubTitle), "Index", "Home")</h1>
     <div id="cardboard">
         @foreach (var card in Model.PlayerHand)
         {

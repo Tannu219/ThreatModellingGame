@@ -1,13 +1,27 @@
-﻿@{
+﻿@using ThreatModellingGame.Web.Resources
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<header>
-    <h1>@Html.ActionLink(AppConfig.ApplicationName, "Index", "Home")</h1>
-</header>
-<main>
-    @RenderBody()
-</main>
-<footer>
-    <p>Game invented by Microsoft | Online version powered by <a href="http://dusted.codes/">Dustin Moris Gorski</a></p>
-</footer>
+<div class="container">
+    <div class="header clearfix">
+        @*<nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">About</a></li>
+                    <li role="presentation"><a href="#">Contact</a></li>
+                </ul>
+            </nav>*@
+        <h1>
+            @AllText.App_Title<br />
+            @AllText.App_SubTitle
+        </h1>
+    </div>
+    <div class="row main">
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <p>Game originally invented by Microsoft | Online version powered by <a href="http://dusted.codes/">Dustin Moris Gorski</a></p>
+    </footer>
+
+</div>
