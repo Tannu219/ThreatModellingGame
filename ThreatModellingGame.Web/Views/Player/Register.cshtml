@@ -1,17 +1,19 @@
-﻿@model ThreatModellingGame.Web.ViewModels.ChangePlayerNameViewModel
+﻿@using ThreatModellingGame.Web.Resources
+@model ThreatModellingGame.Web.ViewModels.ChangePlayerNameViewModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = AllText.Register;
 }
-
-@Html.ValidationSummary()
 
 @using (Html.BeginForm("Register", "Player"))
 {
-    <h2>Please enter your name to get started.</h2>
+    <h2>@AllText.Register_Title</h2>
+    <p>@AllText.Register_Info</p>
 
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
 
-    <input type="submit" value="Get Started" />
+    <input type="submit" value="@AllText.Get_Started" />
+    
+    @Html.ValidationSummary()
 }

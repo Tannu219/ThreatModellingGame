@@ -1,0 +1,19 @@
+﻿@using ThreatModellingGame.Web.Resources
+@model ThreatModellingGame.Web.ViewModels.ChangePlayerNameViewModel
+
+@{
+    ViewBag.Title = AllText.Change_Name;
+}
+
+@using (Html.BeginForm("ChangeName", "Player"))
+{
+    <h2>@AllText.Change_Username_Title</h2>
+    <p>@AllText.Change_Username_Info</p>
+    
+    @Html.LabelFor(m => m.Name)
+    @Html.EditorFor(m => m.Name)
+
+    <input type="submit" value="@AllText.Change_Name" />
+    
+    @Html.ValidationSummary()
+}

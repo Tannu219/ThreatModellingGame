@@ -123,8 +123,17 @@
   <data name="App_Title" xml:space="preserve">
     <value>Elevation of Privilege (EoP)</value>
   </data>
+  <data name="Create_New_Game" xml:space="preserve">
+    <value>Create new Game</value>
+  </data>
+  <data name="Games_Currently_Playing" xml:space="preserve">
+    <value>Games currently playing</value>
+  </data>
   <data name="Game_Invented_By_Microsoft" xml:space="preserve">
     <value>Game originally invented by Microsoft</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>Hi</value>
   </data>
   <data name="Home_Index_GitHub_Reference" xml:space="preserve">
     <value>For more information please visit the</value>
@@ -135,10 +144,58 @@
   <data name="Home_Index_Welcome" xml:space="preserve">
     <value>Welcome fellow security enthusiast</value>
   </data>
+  <data name="Missing_Game_Name_Error" xml:space="preserve">
+    <value>Please pick a name for the new game.</value>
+  </data>
+  <data name="New_Game" xml:space="preserve">
+    <value>New Game</value>
+  </data>
+  <data name="New_Game_Info" xml:space="preserve">
+    <value>To get started you simply pick a name and afterwards you will be taken straight to the game from where you can share the game URL and invite your team members.</value>
+  </data>
+  <data name="New_Game_Label" xml:space="preserve">
+    <value>Pick a game name</value>
+  </data>
+  <data name="Not_Playing_Any_Games" xml:space="preserve">
+    <value>You are not participating in any games at the moment.</value>
+  </data>
   <data name="Powered_By" xml:space="preserve">
     <value>Online version powered by</value>
   </data>
   <data name="Start_Playing" xml:space="preserve">
     <value>Start playing</value>
+  </data>
+  <data name="Your_Details" xml:space="preserve">
+    <value>Your Details</value>
+  </data>
+  <data name="Change_Name" xml:space="preserve">
+    <value>Change Name</value>
+  </data>
+  <data name="Change_Username_Info" xml:space="preserve">
+    <value>Choose the name under which you would like to appear to other players.</value>
+  </data>
+  <data name="Change_Username_Label" xml:space="preserve">
+    <value>Pick a user name</value>
+  </data>
+  <data name="Change_Username_Title" xml:space="preserve">
+    <value>Would you like to change your name?</value>
+  </data>
+  <data name="Missing_Username_Error" xml:space="preserve">
+    <value>Please enter a user name.</value>
+  </data>
+  <data name="Change_Username_Link" xml:space="preserve">
+    <value>Change your name</value>
+  </data>
+  <data name="Get_Started" xml:space="preserve">
+    <value>Get Started</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Register_Info" xml:space="preserve">
+    <value>Before you can start playing you need to pick a user name! Under which name would you like to show up to other players?</value>
+  </data>
+  <data name="Register_Title" xml:space="preserve">
+    <value>New to the game?</value>
   </data>
 </root>

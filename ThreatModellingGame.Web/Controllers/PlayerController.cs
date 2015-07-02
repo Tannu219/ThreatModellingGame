@@ -11,13 +11,11 @@ namespace ThreatModellingGame.Web.Controllers
     {
         private readonly ICookieManager _cookieManager;
         private readonly IGameRepository _gameRepository;
-        private readonly IDealer _dealer;
 
-        public PlayerController(ICookieManager cookieManager, IGameRepository gameRepository, IDealer dealer)
+        public PlayerController(ICookieManager cookieManager, IGameRepository gameRepository)
         {
             _cookieManager = cookieManager;
             _gameRepository = gameRepository;
-            _dealer = dealer;
         }
 
         public ActionResult Register()
@@ -45,53 +43,35 @@ namespace ThreatModellingGame.Web.Controllers
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
             var games = _gameRepository.GetGamesByPlayer(player.Id);
 
-            var viewModel = new PlayerDetailsViewModel
-            {
-                PlayerViewModel = new PlayerViewModel(player, games),
-                ChangePlayerNameViewModel = new ChangePlayerNameViewModel { Name = player.Name }
-            };
+            var viewModel = new PlayerViewModel(player, games);
+
+            return View(viewModel);
+        }
+
+        [RegisteredPlayer]
+        public ActionResult ChangeName()
+        {
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var viewModel = new ChangePlayerNameViewModel { Name = player.Name };
 
             return View(viewModel);
         }
 
         [HttpPost]
         [RegisteredPlayer]
-        public ActionResult ChangeName([Bind(Include = "ChangePlayerNameViewModel")]PlayerDetailsViewModel viewModel)
+        public ActionResult ChangeName(ChangePlayerNameViewModel viewModel)
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var games = _gameRepository.GetGamesByPlayer(player.Id);
 
             if (!ModelState.IsValid)
             {
-                viewModel.PlayerViewModel = new PlayerViewModel(player, games);
-                return View("Details", viewModel);
+                return View("ChangeName", viewModel);
             }
-
-            player.Name = viewModel.ChangePlayerNameViewModel.Name;
+            
+            player.Name = viewModel.Name;
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
             return RedirectToAction("Details", "Player");
         }
-
-        //[HttpPost]
-        //public ActionResult CreateGame([Bind(Include = "NewGameViewModel")]PlayerDetailsViewModel viewModel)
-        //{
-        //    var player = _cookieManager.ExtractPlayerFromCookie(Request);
-        //    var games = _gameRepository.GetGamesByPlayer(player.Id);
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        viewModel.PlayerViewModel = new PlayerViewModel(player, games);
-        //        return View("Details", viewModel);
-        //    }
-
-        //    var game = new Game { Name = viewModel.NewGameViewModel.Name };
-        //    game.Players.Add(player);
-
-        //    _dealer.DealCards(game);
-        //    _gameRepository.Add(game);
-
-        //    return RedirectToAction("Index", "Game", new { id = game.Id });
-        //}
     }
 }

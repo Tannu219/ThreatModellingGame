@@ -94,6 +94,10 @@ form {
     margin: 2em 0;
 }
 
+form p {
+    margin: 2em 0;
+}
+
 label, input {
     display: block;
 }
@@ -129,16 +133,30 @@ label, input {
         }
 
 .validation-summary-errors {
-    border: solid 1px #c30;
-    background: #FDE9D7;
+    background-color: #f2dede;
     -ms-border-radius: 3px;
     border-radius: 3px;
+        margin: .6em 0;
+    padding: 1em;
 }
 
     .validation-summary-errors ul {
-        margin: .6em 0;
+        margin: 0;
+        padding: 0;
         color: #000;
+        list-style: none;
     }
+
+    .validation-summary-errors ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+p.bg-info {
+    padding: 1em;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+}
 
 #game {
     margin: 40px;

@@ -79,11 +79,92 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Name.
+        /// </summary>
+        public static string Change_Name {
+            get {
+                return ResourceManager.GetString("Change_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the name under which you would like to appear to other players..
+        /// </summary>
+        public static string Change_Username_Info {
+            get {
+                return ResourceManager.GetString("Change_Username_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a user name.
+        /// </summary>
+        public static string Change_Username_Label {
+            get {
+                return ResourceManager.GetString("Change_Username_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change your name.
+        /// </summary>
+        public static string Change_Username_Link {
+            get {
+                return ResourceManager.GetString("Change_Username_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to change your name?.
+        /// </summary>
+        public static string Change_Username_Title {
+            get {
+                return ResourceManager.GetString("Change_Username_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create new Game.
+        /// </summary>
+        public static string Create_New_Game {
+            get {
+                return ResourceManager.GetString("Create_New_Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game originally invented by Microsoft.
         /// </summary>
         public static string Game_Invented_By_Microsoft {
             get {
                 return ResourceManager.GetString("Game_Invented_By_Microsoft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games currently playing.
+        /// </summary>
+        public static string Games_Currently_Playing {
+            get {
+                return ResourceManager.GetString("Games_Currently_Playing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Started.
+        /// </summary>
+        public static string Get_Started {
+            get {
+                return ResourceManager.GetString("Get_Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hi.
+        /// </summary>
+        public static string Hi {
+            get {
+                return ResourceManager.GetString("Hi", resourceCulture);
             }
         }
         
@@ -115,6 +196,60 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please pick a name for the new game..
+        /// </summary>
+        public static string Missing_Game_Name_Error {
+            get {
+                return ResourceManager.GetString("Missing_Game_Name_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a user name..
+        /// </summary>
+        public static string Missing_Username_Error {
+            get {
+                return ResourceManager.GetString("Missing_Username_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Game.
+        /// </summary>
+        public static string New_Game {
+            get {
+                return ResourceManager.GetString("New_Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To get started you simply pick a name and afterwards you will be taken straight to the game from where you can share the game URL and invite your team members..
+        /// </summary>
+        public static string New_Game_Info {
+            get {
+                return ResourceManager.GetString("New_Game_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a game name.
+        /// </summary>
+        public static string New_Game_Label {
+            get {
+                return ResourceManager.GetString("New_Game_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are not participating in any games at the moment..
+        /// </summary>
+        public static string Not_Playing_Any_Games {
+            get {
+                return ResourceManager.GetString("Not_Playing_Any_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Online version powered by.
         /// </summary>
         public static string Powered_By {
@@ -124,11 +259,47 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before you can start playing you need to pick a user name! Under which name would you like to show up to other players?.
+        /// </summary>
+        public static string Register_Info {
+            get {
+                return ResourceManager.GetString("Register_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New to the game?.
+        /// </summary>
+        public static string Register_Title {
+            get {
+                return ResourceManager.GetString("Register_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start playing.
         /// </summary>
         public static string Start_Playing {
             get {
                 return ResourceManager.GetString("Start_Playing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Details.
+        /// </summary>
+        public static string Your_Details {
+            get {
+                return ResourceManager.GetString("Your_Details", resourceCulture);
             }
         }
     }

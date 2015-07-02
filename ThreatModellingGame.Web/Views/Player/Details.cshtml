@@ -1,29 +1,25 @@
-﻿@model ThreatModellingGame.Web.ViewModels.PlayerDetailsViewModel
+﻿@using ThreatModellingGame.Web.Resources
+@model ThreatModellingGame.Web.ViewModels.PlayerViewModel
 
 @{
-    ViewBag.Title = Model.PlayerViewModel.Name;
+    ViewBag.Title = Model.Name;
 }
 
-@Html.ValidationSummary()
+<h2>@AllText.Hi @Model.Name!</h2>
 
-@using (Html.BeginForm("ChangeName", "Player"))
+<h3>@AllText.Your_Details</h3>
+<p>
+    @Html.ActionLink(AllText.Change_Username_Link, "ChangeName", "Player")
+</p>
+
+<h3>@AllText.Games_Currently_Playing</h3>
+@if (Model.Games == null || !Model.Games.Any())
 {
-    <h2>Your Details</h2>
-
-    @Html.LabelFor(m => m.ChangePlayerNameViewModel.Name)
-    @Html.EditorFor(m => m.ChangePlayerNameViewModel.Name)
-
-    <input type="submit" value="Change Name" />
-}
-
-<h2>Games currently participating</h2>
-@if (Model.PlayerViewModel.Games == null || !Model.PlayerViewModel.Games.Any())
-{
-    <p>You are not participating in any games at the moment.</p>
+    <p>@AllText.Not_Playing_Any_Games</p>
 }
 else
 {
-    foreach (var game in Model.PlayerViewModel.Games)
+    foreach (var game in Model.Games)
     {
         <ul>
             <li>@Html.ActionLink(game.Name, "Index", "Game", new { id = game.Id }, null)</li>
@@ -32,5 +28,5 @@ else
 }
 
 <p>
-    @Html.ActionLink("Create new Game", "CreateGame", "Game", null, new { @class = "btn btn-lg btn-success" })
+    @Html.ActionLink(AllText.Create_New_Game, "CreateGame", "Game", null, new { @class = "btn btn-lg btn-success" })
 </p>

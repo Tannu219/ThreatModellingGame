@@ -4,6 +4,5 @@
     {
         public PlayerViewModel PlayerViewModel { get; set; }
         public ChangePlayerNameViewModel ChangePlayerNameViewModel { get; set; }
-        public NewGameViewModel NewGameViewModel { get; set; }
     }
 }
