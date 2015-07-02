@@ -166,30 +166,36 @@ p.bg-info {
     border-radius: 3px;
 }
 
-#game {
-    margin: 40px;
+.game > h1 {
+    margin: 1em;
+    font-size: 1.7em;
+    font-weight: 600;
 }
 
-    #game h1 {
-        margin-bottom: 1.5em;
-    }
+.game ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
-#cardboard {
-    width: 73%;
-    float: left;
-    display: flex;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
+.game ul li:before {
+    content: '- ';
 }
 
 .card {
-    border: 1px solid #999;
-    margin: 0 30px 30px 0;
-    width: 150px;
+    border: 1px solid #aaa;
+    margin: 3px;
+    width: 170px;
     padding: 1em;
-    -ms-border-radius: 2px;
-    border-radius: 2px;
-    background: #fafafa;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.hand {
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
 }
 
 .spoofing {
@@ -215,44 +221,3 @@ p.bg-info {
 .elevationofprivilege {
     color: #ff4500;
 }
-
-#sidebox {
-    border: 1px solid #ddd;
-    width: 27%;
-    padding: 1em;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    background: #fcfcfc;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-}
-
-    #sidebox h2 {
-        margin-top: 0;
-    }
-
-    #sidebox h3 {
-        margin-top: 1.5em;
-        border-top: 1px solid #efefef;
-        padding-top: 1.5em;
-    }
-
-        #sidebox h3:first-of-type {
-            border-top: none;
-            padding-top: 0;
-        }
-
-    #sidebox ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-        #sidebox ul li {
-            margin: .3em 0;
-        }
-
-    #sidebox input[type=submit] {
-        width: 100%;
-    }
