@@ -201,4 +201,13 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Join_Game" xml:space="preserve">
+    <value>Join Game</value>
+  </data>
+  <data name="Want_To_Join_Game" xml:space="preserve">
+    <value>Do you want to join the game</value>
+  </data>
 </root>

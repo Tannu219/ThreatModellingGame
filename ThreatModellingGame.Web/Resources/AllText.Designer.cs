@@ -205,6 +205,24 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join.
+        /// </summary>
+        public static string Join {
+            get {
+                return ResourceManager.GetString("Join", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join Game.
+        /// </summary>
+        public static string Join_Game {
+            get {
+                return ResourceManager.GetString("Join_Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please pick a name for the new game..
         /// </summary>
         public static string Missing_Game_Name_Error {
@@ -300,6 +318,15 @@ namespace ThreatModellingGame.Web.Resources {
         public static string Start_Playing {
             get {
                 return ResourceManager.GetString("Start_Playing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to join the game.
+        /// </summary>
+        public static string Want_To_Join_Game {
+            get {
+                return ResourceManager.GetString("Want_To_Join_Game", resourceCulture);
             }
         }
         
