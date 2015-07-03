@@ -18,7 +18,7 @@ In the first version I am focusing on providing a way of just simply dealing the
 In later versions I will increasingly add more features to enhance the experience, as well as adding multilingual support.
 
 ### Status
-The first beta version is available at http://eopgame.azurewebsites.net/
+The first beta version is available at https://eopgame.azurewebsites.net/
 
 ## Contribution
 
