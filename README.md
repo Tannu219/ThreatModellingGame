@@ -11,21 +11,16 @@ For more information I recommend to read [Microsoft's whitepaper](http://downloa
 ## About this project
 
 ### Goal
-The ultimate goal of this project is to provide remote teams a way to deal the cards and play the game in an online meeting (Lync, Skype, Google Hangouts, whatever you are using in your company!).
+The ultimate goal of this project is to provide remote teams a way to deal the cards and play the game via an online meeting space like Skype, Google Hangouts or whatever technology your team has adopted.
 
-In the first version I am focusing on providing a way of dealing the cards online. Other aspects of the game, like modeling the system and writing down the bugs, can be easily achieved with other online tools and therefore are not required in the first version to enable remote teams to play.
+In the first version I am focusing on providing a way of just simply dealing the cards. Other aspects of the game, like modelling the system and writing down the bugs, can be achieved with other online tools and therefore are not required in the first version to be able to play the game.
 
-In later versions I might want to embed support for popular 3rd party tools into the UI (Office 365, Google Docs, etc.).
-
-Additionally I would like to support multilingual translations in the online version as well!
+In later versions I will increasingly add more features to enhance the experience, as well as adding multilingual support.
 
 ### Status
-This project is still in work.
-
-### Hosting
-Currently it is hosted on Windows Azure and is available at http://threat-modeling-game.azurewebsites.net/
+The first beta version is available at http://eopgame.azurewebsites.net/
 
 ## Contribution
 
-More than welcome! If there is anything you want to get involved with just drop me a message!
+This is a side project which I started as a hobby and any sort of contribution is more than welcome! If there is anything you want to get involved with just drop me a message!
 Pull requests will get accepted!
