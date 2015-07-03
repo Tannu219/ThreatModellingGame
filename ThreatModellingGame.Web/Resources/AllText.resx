@@ -226,7 +226,7 @@
     <value>URL</value>
   </data>
   <data name="URL_Share_Info" xml:space="preserve">
-    <value>Share this URL with your team mates. They can join the game by copy pasting it into the browser.</value>
+    <value>Share this URL with your team mates. They can join the game by copy pasting it into the browser. IMPORTANT: After a new user joins the game all other users need to refresh their browser to pick up the changes. This will be changed in an upcoming version.</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>About</value>

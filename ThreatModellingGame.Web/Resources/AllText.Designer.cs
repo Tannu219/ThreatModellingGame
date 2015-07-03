@@ -385,7 +385,7 @@ namespace ThreatModellingGame.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Share this URL with your team mates. They can join the game by copy pasting it into the browser..
+        ///   Looks up a localized string similar to Share this URL with your team mates. They can join the game by copy pasting it into the browser. IMPORTANT: After a new user joins the game all other users need to refresh their browser to pick up the changes. This will be changed in an upcoming version..
         /// </summary>
         public static string URL_Share_Info {
             get {
