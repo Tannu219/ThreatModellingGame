@@ -2,9 +2,7 @@ namespace ThreatModellingGame.Core
 {
     public interface ICardDeck
     {
-        void Init();
-        void Reset();
-        void Shuffle();
+        void ResetAndShuffle();
         bool HasCards();
         Card DrawCard();
     }

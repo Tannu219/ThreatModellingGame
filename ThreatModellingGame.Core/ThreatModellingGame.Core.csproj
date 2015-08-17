@@ -37,8 +37,6 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
-    <Compile Include="Dealer.cs" />
-    <Compile Include="IDealer.cs" />
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
@@ -54,6 +52,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Extensions\SuitExtensions.cs" />
+    <Compile Include="Services\Class1.cs" />
     <Compile Include="Web\CookieManager.cs" />
     <Compile Include="Web\ICookieManager.cs" />
     <Compile Include="Suit.cs" />

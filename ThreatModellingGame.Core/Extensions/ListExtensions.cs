@@ -10,9 +10,8 @@ namespace ThreatModellingGame.Core.Extensions
             var random = new Random();
             var n = list.Count;
 
-            while (n > 1)
+            while (n-- > 1)
             {
-                n--;
                 var k = random.Next(n + 1);
                 var value = list[k];
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ThreatModellingGame.Core.Extensions;
 using ThreatModellingGame.Core.Repositories;
 
@@ -7,39 +8,20 @@ namespace ThreatModellingGame.Core
     public sealed class CardDeck : ICardDeck
     {
         private readonly ICardRepository _cardRepository;
-        private readonly Stack<Card> _cards;
+        private readonly Stack<Card> _cards = new Stack<Card>();
 
         public CardDeck(ICardRepository cardRepository)
         {
             _cardRepository = cardRepository;
-            _cards = new Stack<Card>();
         }
 
-        public void Init()
+        public void ResetAndShuffle()
         {
-            var allCards = _cardRepository.GetAllCards();
-
-            foreach (var card in allCards)
-            {
-                _cards.Push(card);
-            }
-        }
-
-        public void Reset()
-        {
-            _cards.Clear();
-
-            Init();
-        }
-
-        public void Shuffle()
-        {
-            var temp = _cards.ToArray();
-            temp.Shuffle();
+            var cards = _cardRepository.GetAllCards().ToArray();
+            cards.Shuffle();
 
             _cards.Clear();
-
-            foreach (var card in temp)
+            foreach (var card in cards)
             {
                 _cards.Push(card);
             }

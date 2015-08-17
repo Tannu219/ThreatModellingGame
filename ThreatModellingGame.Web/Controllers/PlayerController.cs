@@ -34,7 +34,7 @@ namespace ThreatModellingGame.Web.Controllers
                 return View(viewModel);
             }
 
-            var player = new Player { Name = viewModel.Name };
+            var player = new Player(viewModel.Name);
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
             return string.IsNullOrEmpty(returnUrl) 
@@ -84,7 +84,7 @@ namespace ThreatModellingGame.Web.Controllers
                 return View("ChangeName", viewModel);
             }
             
-            player.Name = viewModel.Name;
+            player.ChangeName(viewModel.Name);
             _cookieManager.IssueNewPlayerCookie(Response, player);
 
             return RedirectToAction("Details", "Player");

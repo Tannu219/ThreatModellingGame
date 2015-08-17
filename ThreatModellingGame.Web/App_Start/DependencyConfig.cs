@@ -13,7 +13,6 @@ namespace ThreatModellingGame.Web
             kernel.Bind<ICardRepository>().To<CardRepository>();
             kernel.Bind<IGameRepository>().ToConstant(GameRepository.Instance);
             kernel.Bind<ICardDeck>().To<CardDeck>();
-            kernel.Bind<IDealer>().To<Dealer>();
         }
     }
 }

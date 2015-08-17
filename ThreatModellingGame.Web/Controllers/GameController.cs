@@ -13,13 +13,11 @@ namespace ThreatModellingGame.Web.Controllers
     {
         private readonly ICookieManager _cookieManager;
         private readonly IGameRepository _gameRepository;
-        private readonly IDealer _dealer;
 
-        public GameController(ICookieManager cookieManager, IGameRepository gameRepository, IDealer dealer)
+        public GameController(ICookieManager cookieManager, IGameRepository gameRepository)
         {
             _cookieManager = cookieManager;
             _gameRepository = gameRepository;
-            _dealer = dealer;
         }
 
         public ActionResult Index(string id)
@@ -62,10 +60,10 @@ namespace ThreatModellingGame.Web.Controllers
                 return View("CreateGame", viewModel);
             }
 
-            var game = new Game { Name = viewModel.Name };
-            game.Players.Add(player);
+            var game = new Game(viewModel.Name);
 
-            _dealer.DealCards(game);
+            game.Players.Add(player);
+            game.StartGame();
             _gameRepository.Add(game);
 
             return RedirectToAction("Index", "Game", new { id = game.Id });
@@ -108,7 +106,7 @@ namespace ThreatModellingGame.Web.Controllers
             }
 
             game.Players.Add(player);
-            _dealer.DealCards(game);
+            game.StartGame();
 
             return RedirectToAction("Index", new { id = game.Id });
         }

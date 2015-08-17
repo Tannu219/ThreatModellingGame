@@ -28,7 +28,7 @@ namespace ThreatModellingGame.Core.Web
             {
                 var cookie = httpRequest.Cookies[PlayerCookieName];
 
-                return cookie == null ? null : new Player(cookie["Id"]) { Name = cookie["Name"] };
+                return cookie == null ? null : new Player(cookie["Id"], cookie["Name"]);
             }
             catch
             {
