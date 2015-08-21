@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThreatModellingGame.Core</RootNamespace>
     <AssemblyName>ThreatModellingGame.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,14 +33,20 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
+    <Compile Include="Factories\CardDeckFactory.cs" />
+    <Compile Include="Factories\GameFactory.cs" />
+    <Compile Include="Factories\ICardDeckFactory.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="Factories\IGameFactory.cs" />
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Repositories\GameRepository.cs" />
+    <Compile Include="Repositories\InMemoryGameRepository.cs" />
     <Compile Include="ICardDeck.cs" />
     <Compile Include="Repositories\ICardRepository.cs" />
     <Compile Include="Repositories\IGameRepository.cs" />
@@ -52,7 +59,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Extensions\SuitExtensions.cs" />
-    <Compile Include="Services\Class1.cs" />
     <Compile Include="Web\CookieManager.cs" />
     <Compile Include="Web\ICookieManager.cs" />
     <Compile Include="Suit.cs" />

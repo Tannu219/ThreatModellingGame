@@ -10,7 +10,14 @@
 
 <div class="game">
 
-    <h1>@string.Format("{0} - {1}", AllText.App_Title, AllText.App_SubTitle)</h1>
+    @{ var someText = "some text"; }
+
+    <p>@($"This is {someText}.")</p>
+
+
+
+
+    <h1>@($"{AllText.App_Title} - {AllText.App_SubTitle}")</h1>
 
     <div class="container-fluid">
         <div class="row">
@@ -27,7 +34,7 @@
                 <h1>@(AllText.Game): @Model.Game.Name</h1>
                 <h3>@AllText.URL</h3>
                 @{
-                    var gameUrl = Url.Action("Index", "Game", new { id = Model.Game.Id }, "http");
+                    var gameUrl = Url.Action("Index", "Game", new { id = Model.Game.Id}, "http");
                 }
                 <p><a href="@gameUrl">@gameUrl</a></p>
                 <p class="bg-info">
@@ -36,7 +43,7 @@
 
                 <h3>@AllText.Players</h3>
                 <ul>
-                    @foreach (var player in Model.Game.Players)
+                    @foreach (var player in Model.Game.GetPlayers())
                     {
                         <li>@player.Name</li>
                     }

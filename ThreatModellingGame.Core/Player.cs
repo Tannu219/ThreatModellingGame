@@ -11,6 +11,9 @@ namespace ThreatModellingGame.Core
 
         public Player(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentException(@"Name cannot be null or empty.", nameof(name));
+
             Id = Guid.NewGuid().ToString("N");
             Name = name;
             Hand = new List<Card>();
@@ -41,6 +44,11 @@ namespace ThreatModellingGame.Core
         public override int GetHashCode()
         {
             return Id.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

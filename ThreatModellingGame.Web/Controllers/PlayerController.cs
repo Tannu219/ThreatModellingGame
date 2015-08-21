@@ -56,7 +56,7 @@ namespace ThreatModellingGame.Web.Controllers
         public ActionResult Details()
         {
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
-            var games = _gameRepository.GetGamesByPlayer(player.Id);
+            var games = _gameRepository.GetGamesByPlayer(player);
 
             var viewModel = new PlayerViewModel(player, games);
 

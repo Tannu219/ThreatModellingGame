@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using ThreatModellingGame.Core;
+﻿using System.Web.Mvc;
+using ThreatModellingGame.Core.Factories;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
 using ThreatModellingGame.Web.Filters;
@@ -12,39 +11,36 @@ namespace ThreatModellingGame.Web.Controllers
     public class GameController : Controller
     {
         private readonly ICookieManager _cookieManager;
+        private readonly IGameFactory _gameFactory;
         private readonly IGameRepository _gameRepository;
 
-        public GameController(ICookieManager cookieManager, IGameRepository gameRepository)
+        public GameController(ICookieManager cookieManager, IGameFactory gameFactory, IGameRepository gameRepository)
         {
             _cookieManager = cookieManager;
+            _gameFactory = gameFactory;
             _gameRepository = gameRepository;
         }
 
         public ActionResult Index(string id)
         {
-            if (!GameExists(id))
-            {
-                return HttpNotFound();
-            }
-
             var game = _gameRepository.Get(id);
+
+            if (game == null)
+                return HttpNotFound();
+
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
-            if (!IsPlayerInGame(game, player))
-            {
+            if (!game.HasPlayer(player))
                 return RedirectToAction("ConfirmJoin", new { id = game.Id });
-            }
 
-            var model = new GameViewModel(game, player);
-
-            return View(model);
+            var viewModel = new GameViewModel(game, player);
+            return View(viewModel);
         }
 
         [RegisteredPlayer]
         public ActionResult CreateGame()
         {
             var viewModel = new NewGameViewModel();
-
             return View(viewModel);
         }
 
@@ -53,17 +49,15 @@ namespace ThreatModellingGame.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateGame(NewGameViewModel viewModel)
         {
-            var player = _cookieManager.ExtractPlayerFromCookie(Request);
-
             if (!ModelState.IsValid)
-            {
                 return View("CreateGame", viewModel);
-            }
 
-            var game = new Game(viewModel.Name);
+            var player = _cookieManager.ExtractPlayerFromCookie(Request);
+            var game = _gameFactory.Create(viewModel.Name);
 
-            game.Players.Add(player);
+            game.AddPlayer(player);
             game.StartGame();
+
             _gameRepository.Add(game);
 
             return RedirectToAction("Index", "Game", new { id = game.Id });
@@ -71,54 +65,38 @@ namespace ThreatModellingGame.Web.Controllers
 
         public ActionResult ConfirmJoin(string id)
         {
-            if (!GameExists(id))
-            {
-                return HttpNotFound();
-            }
-
             var game = _gameRepository.Get(id);
+
+            if (game == null)
+                return HttpNotFound();
+
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
-            if (IsPlayerInGame(game, player))
-            {
+            if (game.HasPlayer(player))
                 return RedirectToAction("Index", new { id = game.Id });
-            }
 
             var viewModel = new JoinGameViewModel { GameId = game.Id, Name = game.Name };
-
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Join(JoinGameViewModel viewModel)
         {
-            if (!GameExists(viewModel.GameId))
-            {
-                return HttpNotFound();
-            }
-
             var game = _gameRepository.Get(viewModel.GameId);
+
+            if (game == null)
+                return HttpNotFound();
+
             var player = _cookieManager.ExtractPlayerFromCookie(Request);
 
-            if (IsPlayerInGame(game, player))
+            if (!game.HasPlayer(player))
             {
-                return RedirectToAction("Index", new { id = game.Id });
+                game.AddPlayer(player);
+                game.StartGame();
+                _gameRepository.Update(game);
             }
 
-            game.Players.Add(player);
-            game.StartGame();
-
             return RedirectToAction("Index", new { id = game.Id });
-        }
-
-        private bool GameExists(string gameId)
-        {
-            return !string.IsNullOrEmpty(gameId) && _gameRepository.Contains(gameId);
-        }
-
-        private static bool IsPlayerInGame(Game game, Player player)
-        {
-            return game.Players.Any(p => p.Id.Equals(player.Id));
         }
     }
 }

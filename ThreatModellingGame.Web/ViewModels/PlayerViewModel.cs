@@ -6,15 +6,15 @@ namespace ThreatModellingGame.Web.ViewModels
     public sealed class PlayerViewModel
     {
         private readonly Player _player;
-        private readonly IEnumerable<Game> _gamesByPlayer;
+        private readonly IEnumerable<IGame> _gamesByPlayer;
 
-        public PlayerViewModel(Player player, IEnumerable<Game> gamesByPlayer)
+        public PlayerViewModel(Player player, IEnumerable<IGame> gamesByPlayer)
         {
             _player = player;
             _gamesByPlayer = gamesByPlayer;
         }
 
-        public IEnumerable<Game> Games
+        public IEnumerable<IGame> Games
         {
             get { return _gamesByPlayer; }
         }

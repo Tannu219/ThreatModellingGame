@@ -1,5 +1,5 @@
 using Ninject;
-using ThreatModellingGame.Core;
+using ThreatModellingGame.Core.Factories;
 using ThreatModellingGame.Core.Repositories;
 using ThreatModellingGame.Core.Web;
 
@@ -11,8 +11,9 @@ namespace ThreatModellingGame.Web
         {
             kernel.Bind<ICookieManager>().To<CookieManager>();
             kernel.Bind<ICardRepository>().To<CardRepository>();
-            kernel.Bind<IGameRepository>().ToConstant(GameRepository.Instance);
-            kernel.Bind<ICardDeck>().To<CardDeck>();
+            kernel.Bind<IGameRepository>().To<InMemoryGameRepository>();
+            kernel.Bind<ICardDeckFactory>().To<CardDeckFactory>();
+            kernel.Bind<IGameFactory>().To<GameFactory>();
         }
     }
 }
