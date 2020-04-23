@@ -154,7 +154,7 @@
     <value>An attacker can amplify a Denial of Service attack through this component with amplification on the order of 100:1.</value>
   </data>
   <data name="DenialOfService_Q" xml:space="preserve">
-    <value>An attacker can amplify a Denial of Service attack through this component with amplification on th eorder of 10:1.</value>
+    <value>An attacker can amplify a Denial of Service attack through this component with amplification on the order of 10:1.</value>
   </data>
   <data name="ElevationOfPrivilege_10" xml:space="preserve">
     <value>There's no reasonable way for a caller to figure out what security assumptions you make.</value>
